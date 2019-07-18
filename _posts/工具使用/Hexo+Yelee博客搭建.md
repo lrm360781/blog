@@ -24,32 +24,7 @@ yum remove git
 ```
 但是yum安装的git版本较低。如需安装高版本的git，我们可以选择使用源码安装。
 **git源码安装**
-（1）安装依赖的包
-```ejs
-yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
-```
-（2）下载git源码并解压
-```ejs
-wget https://github.com/git/git/releases/tag/v2.11.0
-tar zxvf git-2.11.0.tar.gz
-cd git-2.11.0
-```
-（3）编译安装
-```ejs
-make prefix=/usr/local/git all
-make prefix=/usr/local/git install
-```
-（4）查看git
-```ejs
-git --version
-```
-（5）配置环境变量
-```ejs
-vim /etc/profile
-加入export PATH=$PATH:/usr/local/git/bin
-source /etc/profile
-生效配置文件
-```
+参照我的另外一篇博客：[博客地址](https://www.rms360.top/2018/10/26/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/Git%E5%AE%89%E8%A3%85/)
 
 ### node.js安装
 

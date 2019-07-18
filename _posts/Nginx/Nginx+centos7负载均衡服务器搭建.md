@@ -162,8 +162,4 @@ www.rms520.com
 ip_hash方法，将[ip_hash]写入upstream内
 
 ## 注
-关于nginx负载均衡，你可以在一台主机里面启动多个tomcat容器，
-只要不会端口冲突就行，比如启动三个，三个里面放了同一个webapp,
-nginx负载均衡这三个端口上的tomcat就行，没必要自己起多个应用，
-或者，你可以考虑使用docker，在你服务器启动多个tomcat docker实例，
-效果是一样的。
+关于nginx负载均衡，你可以在一台主机里面启动多个tomcat容器，只要不会端口冲突就行，比如启动三个，三个里面放了同一个webapp,nginx负载均衡这三个端口上的tomcat就行，没必要自己起多个应用，或者，你可以考虑使用docker，在你服务器启动多个tomcat docker实例，效果是一样的。
