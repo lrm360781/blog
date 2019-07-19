@@ -20,7 +20,9 @@ tags:
 
    连接服务器，如果安装时未选择路径，nginx的根目录位于/etc/nginx文件下，在该目录下新建一个cert文件夹，将下载的证书重命名后上传到该文件夹。
    
-   nginx 1.16.0版本 
+   若是你忘记了配置文件位置，执行**whereis nginx** 搜寻
+   
+   本文是nginx 1.16.0版本配置 ，当然不论是什么版本，你都可以将**server{}** 写在nginx.conf文件，http大括号内。
 ```java
   # vim /etc/nginx/conf.d/default.conf
 ```
