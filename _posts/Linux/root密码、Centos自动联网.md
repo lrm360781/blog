@@ -13,9 +13,10 @@ tags:
 6.	重复输入两次超过8位数的密码
 7.	输入“touch /.autorelabel”,回车
 8.	输入“exec /sbin/init”，回车  操作结束，系统自动重启
+
 ## Centos 自动联网
-1.切换到root权限 ：su root   然后输入密码
-2.输入 cd /etc/sysconfig/network-scripts/ 回车
-3.ls  找到ifcfg-ens（一般为数字）文件,我电脑为ifcfg-ens33
-4.vi ifcfg-ens33将ONBOOT=no  改为yes
+1. 切换到root权限 ：su root   然后输入密码
+2. 输入 cd /etc/sysconfig/network-scripts/ 回车
+3. ls  找到ifcfg-ens（一般为数字）文件,我电脑为ifcfg-ens33
+4. vi ifcfg-ens33将ONBOOT=no  改为yes
 5. 按esc键退出编辑模式，输入:wq! 回车退出并保存
