@@ -25,9 +25,9 @@ Xml头申明：不强制要求，可有可无，但是建议书写
 ```yaml
 <?xml version=”1.0” encoding=”utf-8” ?> xml头申明
 <root>       根节点
-		<user>lms</user>
-		<msg>陶大</msg>
-	</root>
+	<user>lms</user>
+	<msg>陶大</msg>
+</root>
 ```
 标签不能交叉 <a>nn<b>mm</a></b>
 xml注释，与HTML相同
