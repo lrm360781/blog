@@ -23,4 +23,7 @@ tags:
 ![输入在页面显示的文字](图片名.jpg)
 ```
 ## 效果图
+<div align=center>
+
 ![演示](/img/ms.jpg)
+</div>
