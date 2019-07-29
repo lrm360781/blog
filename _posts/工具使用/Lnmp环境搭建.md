@@ -136,7 +136,7 @@ nginx -s reload
 打开phpinfo.php文件，按i进入编辑模式，输入以下内容
 ```ejs
 <?php
-echo phpinfo.php;
+echo phpinfo();
 ?>
 ```
 保存并退出
