@@ -151,7 +151,8 @@ echo phpinfo();
 保存并退出
 ### 启动PHP-FPM
 ```ejs
-systemctl start php-fpm
+systemctl start php-fpm.service   //启动
+systemctl restart php-fpm.service  //重启
 ```
 ### 开机自启PHP-FPM
 ```ejs

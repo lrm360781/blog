@@ -92,7 +92,7 @@ mysql>flush privileges ;
 mysql>quit
 ```
 ### 重置配置文件并重启服务
-完成上述操作之后，将/etc/my.cnf文件中的skip-grant-tables
+完成上述操作之后，将/etc/my.cnf文件中的skip-grant-tables删除
 退出重启mysql
 ```yaml
   # systemctl restart mysqld.service
