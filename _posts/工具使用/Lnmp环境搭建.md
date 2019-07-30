@@ -47,6 +47,10 @@ rpm -qa gcc   或者    gcc -v
 yum install gcc gcc-c++
 ```
 ## 安装Nginx
+添加源
+```ejs
+sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+```
 运行下列命令安装nginx
 ```ejs
 yum -y install nginx
@@ -57,7 +61,12 @@ nginx -v
 ```
 返回如下所示，则安装成功
 ```ejs
-nginx version: nginx/1.12.2
+nginx version: nginx/1.16.0
+```
+设置开机自启
+```ejs
+sudo systemctl start nginx.service
+sudo systemctl enable nginx.service
 ```
 
 ## 安装MySQL

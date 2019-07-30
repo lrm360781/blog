@@ -1,5 +1,5 @@
 ---
-title: redis安装
+title: php-redis安装
 date: 2019-03-19 10:37:33
 tags: 
     - redis
@@ -37,13 +37,40 @@ cp /root/amp/redis-5.0.4/redis.conf /usr/local/redis/bin
 ```yaml
 vim +136 redis.conf
 ```
-将**no**改为**yes**，让redis在持续运行。
+将**daemonize no**改为**daemonize yes**，让redis在持续运行。
 
 启动redis
 ```yaml
 cd /usr/local/redis/bin
-./redis.server ./redis.conf
+./redis-server ./redis.conf
 ```
+## redis拓展安装
+```yaml
+cd /root/amp
+tar zxvf redis-5.0.0RC2.tgz redis-5.0.0RC2
+```
+1. 打开解压后的文件，文件中没有configure文件，这是在该文件下运行
+```yaml
+phpize
+//未配置全局变量则用路径方式运行
+ whereis phpize
+/usr/local/php/bin/phpize   //替换为whereis查找的路径
+```
+2.  执行./configure 命令 
+3. 完成之后，在末尾会显示路径，打开该文件，里面有redis.so，则安装成功
+4. 配置php.ini文件
+```yaml
+ vi /etc/php.ini
+ //添加代码
+ extension='redis.so'
+```
+5. 重启php-fpm服务
+### 测试
+执行 **phpinfo()** 函数，按**Ctrl+f**，搜索redis，显示如下结果则安装成功。
+<div aligen=cent>
+
+![imsge](/img_redis/ceshi.1.png)
+</div>
 好了，各位看官redis安装完成，请收下。
 
 
