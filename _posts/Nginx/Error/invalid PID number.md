@@ -12,7 +12,7 @@ tags:
 nginx: [error] invalid PID number "" in "/var/run/nginx.pid"
 ```
 
-## 决绝方案
+## 解决方案
 执行**nginx -c /etc/nginx/nginx.conf**，再执行**nginx -s reload**.
 问题解决
  
