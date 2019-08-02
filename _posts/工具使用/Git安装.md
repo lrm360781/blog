@@ -7,6 +7,10 @@ tags:
 ---
 ## 检查
 输入**git**，若无版本信息则未安装git
+## 安装git的依赖环境
+```yaml
+yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker
+```
 ## Git下载地址
 ```yaml
 wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.21.0.tar.gz
