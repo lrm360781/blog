@@ -15,6 +15,7 @@ yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel per
 ```yaml
 wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.21.0.tar.gz
 ```
+[其他版本下载](https://mirrors.edge.kernel.org/pub/software/scm/git/)
 ## 解压软件包
 ```yaml
 tar -zxvf git-2.21.0.tar.gz
