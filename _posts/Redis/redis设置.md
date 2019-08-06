@@ -1,5 +1,5 @@
 ---
-title: php-redis安装
+title: redis设置
 date: 2019-05-22 11:47:13
 tags: 
     - redis
@@ -12,7 +12,6 @@ tags:
 vi redis.conf
 
 /requirepass    #搜索字符串所在位置，按“n”切换。
-
 
 #去掉开头的“#”，将“foobared”去掉，输入你的密码。
 #requirepass  foobared   
