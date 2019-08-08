@@ -23,9 +23,9 @@ mysql -uroot -p
 
 在mysql登录的数据库界面里，输入命令
 ```yaml
-mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'lrm360781' WITH GRANT OPTION;
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'mvc!@#rms' WITH GRANT OPTION;
 ```
-'root'表示登录的用户，‘%'表示所有电脑都能链接，也可以设置单独的IP连接，'lrm360781'为连接密码。
+'root'表示登录的用户，‘%'表示所有电脑都能链接，也可以设置单独的IP连接，'mvc!@#rms'为连接密码。
 
 ```ejs
 mysql> flush privileges;
