@@ -26,7 +26,7 @@ mysql -uroot -p
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'mvc!@#rms' WITH GRANT OPTION;
 ```
 'root'表示登录的用户，‘%'表示所有电脑都能链接，也可以设置单独的IP连接，'mvc!@#rms'为连接密码。
-
+**若出现错误**，请参考我的另一篇博客[报错解决方案](https://www.rms360.top/2019/05/12/MySQL/MySQL%E4%BD%BF%E7%94%A8/MySQL%E6%8A%A5%E9%94%99You%20must%20reset%20your%20password%20using%20ALTER%20USER%20statement%20before%20executing%20this%20statement/)
 ```ejs
 mysql> flush privileges;
 ```
