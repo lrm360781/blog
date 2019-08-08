@@ -24,7 +24,12 @@ mysql> ALTER USER USER() IDENTIFIED BY '密码';
 ```ejs
 Your password does not satisfy the current policy requirements
 ```
-增加面膜复杂度即可。
+增加密码复杂度即可，这可能比较难记忆，改变密码策略是比较理想的方案，操作如下：
+```yaml
+set global validate_password_policy=LOW;  #降低密码复杂度规则
+
+set global validate_password_length=6;    #控制密码长度
+```
 ## 分析
 MySQL版本5.6.6版本起，添加了password_expired功能，它允许设置用户的过期时间。这个特性已经添加到mysql.user数据表，但是它的默认值是”N”，可以使用ALTER USER语句来修改这个值。
 输入以下命令，将账号密码强制到期：
