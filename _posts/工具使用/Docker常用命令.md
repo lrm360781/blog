@@ -64,7 +64,7 @@ docker ps -a
 * 查看最后一次运行的容器
 
 ```yaml
-docker ps -1
+docker ps -l
 ```
 * 查看停止的容器
 
