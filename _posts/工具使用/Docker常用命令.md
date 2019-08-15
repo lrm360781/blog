@@ -134,9 +134,6 @@ docker logs -f 容器名称（容器ID）
 ## 案例
 ### MySQL容器部署
 ```yaml
-
-	
-
 docker run -di --name=test_mysql -p 33308:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
 ```
 -p 代表端口映射，格式为 宿主机映射端口:容器运行端口
