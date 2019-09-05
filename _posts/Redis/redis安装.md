@@ -44,27 +44,28 @@ vim +136 redis.conf
 cd /usr/local/redis/bin
 ./redis-server ./redis.conf
 ```
-## redis拓展安装
+## php-redis拓展安装
 ```yaml
 cd /root/amp
 tar zxvf redis-5.0.0RC2.tgz redis-5.0.0RC2
 ```
-1. 打开解压后的文件，文件中没有configure文件，这是在该文件下运行
+1. 打开解压后的文件，文件中没有configure文件，在该路径下执行**phpize**命令生成configure文件
 ```yaml
 phpize
 //未配置全局变量则用路径方式运行
- whereis phpize
-/usr/local/php/bin/phpize   //替换为whereis查找的路径
+ whereis phpize  //查找文件所在位置
+/usr/local/php/bin/phpize   //替换为whereis查找的路径，生成configure文件
 ```
-2.  执行./configure 命令 
-3. 完成之后，在末尾会显示路径，打开该文件，里面有redis.so，则安装成功
-4. 配置php.ini文件
+2. 执行./configure 命令 
+3. 执行**make && make install**
+4. 完成之后，在末尾会显示路径，/usr/local/lib/php/extensions/no-debug-non-zts-20170718/，打开该文件，里面有redis.so，则安装成功
+5. 配置php.ini文件
 ```yaml
  vi /etc/php.ini
  //添加代码
  extension='redis.so'
 ```
-5. 重启php-fpm服务
+6. 重启php-fpm服务
 ### 测试
 执行 **phpinfo()** 函数，按**Ctrl+f**，搜索redis，显示如下结果则安装成功。
 <div aligen=cent>
