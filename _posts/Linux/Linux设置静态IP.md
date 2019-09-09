@@ -35,7 +35,7 @@ service network restart
 重启后依然不能用网，则还需修改resolv.conf文件
 ```yaml
 #打开/etc/resolv.conf文件
-nameserver 114.114.114.114  #nameserver指向dns服务器地址
+nameserver 192.168.0.1  #nameserver指向dns服务器地址
 nameserver 8.8.8.8
 ```
 完成之后无需重启，即时生效。
