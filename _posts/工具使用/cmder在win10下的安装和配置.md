@@ -39,9 +39,8 @@ vi clink.lua
 将第41行的代码修改如下：
 ```yaml
 原来代码：
-
-color codes: "\x1b[1;37;40m"
-local cmder_prompt = "\x1b[1;32;40m{cwd} {git}{hg}{svn} \n\x1b[1;30;40m{lamb} \x1b[0m"
+--color codes: "\x1b[1;37;40m"
+--local cmder_prompt = "\x1b[1;32;40m{cwd} {git}{hg}{svn} \n\x1b[1;30;40m{lamb} \x1b[0m"
 
 -- 修改后：
 -- color codes: "\x1b[1;37;40m"
