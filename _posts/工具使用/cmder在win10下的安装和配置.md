@@ -13,9 +13,9 @@ cmder支持你在windows上使用一些linux的常用命令，例如cp ,pwd,ls�
 ## 下载和解压
 （1）到[cmder官网](http://cmder.net/)下载 cmder_mini.zip（当然也可以选择到[cmder的github](https://github.com/cmderdev/cmder)上下载）
 
-（2）直接解压 cmder_mini.zip，如解压到：D:\\cmder_mini
+（2）直接解压 cmder_mini.zip，如解压到：D:\cmder_mini
 
-（3）将 D:\\cmder_mini 添加到系统环境变量中，至此已可用cmder
+（3）将 D:\cmder_mini 添加到系统环境变量Path中，至此已可用cmder
 
 （4）crtl+R，输入cmder，确定，即可运行cmder
 
@@ -32,7 +32,7 @@ Cmder.exe /REGISTER ALL
 
 在cmder中执行以下命令：
 ```yaml
-cmderr
+cmderr  #切换到cmder所在路径
 cd vendor/
 vi clink.lua
 ```
