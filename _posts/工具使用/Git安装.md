@@ -35,6 +35,12 @@ make && make install
 ```yaml
 ln -s /usr/local/git/bin/* /usr/bin/
 ```
+## 配置Git
+用git config配置Git，设置名字和邮箱地址
+```yaml
+git config --global user.name "youname"
+git config --global user.email "email@example.com"
+```
 完成之后，你可以使用快捷操作，而不需要输入完整路径。
 ## 搭建git服务器
 IT人士知晓，GitHub对普通用户是开源的，不利于数据安全，而想要GitHub成为私有，则GitHub要收取一定的保护费；而你即不想交钱，又要确保数据安全，则你需要自行搭建Git服务器。
