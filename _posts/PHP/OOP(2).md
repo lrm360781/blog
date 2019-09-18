@@ -180,5 +180,54 @@ __clone
 	$rms=new S('ms','xrx');
 	$rms->getSum(10,25);
 ```
+### __callStatic
+当我们调用一个不可访问（protected/private/不存在）的静态方法时，__callStatic魔术方法就会被系统调用。
+```yaml
+class A{
+  public static function __callStatic($method_name,$parameters){
+    echo $method_name;
+    echo  '<br><pre>';
+    var_dump($parameters);
+  }
+  protected static function test1(){
+    echo '<br> test()';
+  }
+  
+  private static function test2(){
+    echo '<br> test2()';
+  }
+}
+
+A::test1();
+A::test2();
+A::rms();
+```
+### __callStatic
+当我们调用一个不可访问（protected/private/不存在）的静态方法时，__callStatic魔术方法就会被系统调用。
+```yaml
+class A{
+  public static function __callStatic($method_name,$parameters){
+    echo $method_name;
+    echo  '<br><pre>';
+    var_dump($parameters);
+  }
+  protected static function test1(){
+    echo '<br> test()';
+  }
+  
+  private static function test2(){
+    echo '<br> test2()';
+  }
+}
+
+A::test1();
+A::test2();
+A::rms();
+```
+
+
+
+
+
 
 
