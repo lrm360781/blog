@@ -29,7 +29,7 @@ tags:
     }
     
     class Bone extends Food{
-      `public function showInfo(){
+       public function showInfo(){
        echo '<br>骨头的品种是'.$this->name;
       }
     }
