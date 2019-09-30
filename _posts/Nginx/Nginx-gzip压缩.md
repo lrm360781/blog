@@ -3,7 +3,6 @@ title: nginx-gzip压缩
 date: 2019-4-18 16:13:52
 tags:
     - nginx
-    - expires
 ---
 ## Gzip压缩作用
 将响应报⽂发送⾄客户端之前可以启⽤压缩功能，这能够有效地节约带宽，并提⾼响应⾄客户端的速度。Gzip压缩可以配置http,server和location模块下。Nginx开启Gzip压缩功能的配置如下:
