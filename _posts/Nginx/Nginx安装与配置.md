@@ -1,10 +1,10 @@
 ---
-title: Nginx安装与配置
+title: nginx安装与配置
 date: 2019-01-24 16:56:24
 tags: 
-    - Nginx
+    - nginx
 ---
-
+n
 
 ## 添加源
 ```yaml

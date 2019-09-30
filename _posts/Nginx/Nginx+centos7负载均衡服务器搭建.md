@@ -1,8 +1,8 @@
 ---
-title: Nginx+centos7负载均衡服务器搭建
+title: nginx+centos7负载均衡服务器搭建
 date: 2019-04-21 10:16:09
 tags:
-    - Nginx
+    - nginx
     - CentOS7
     - web服务器
 ---
