@@ -2,7 +2,7 @@
 title: root密码、Centos自动联网
 date: 2019-01-03 21:21:01
 tags:
-    - linux
+    - Linux
 ---
 ## 修改root密码
 1.	打开centos7 然后按“e”进入编辑页面

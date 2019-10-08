@@ -3,7 +3,7 @@ title: firewall开放端口
 date: 2019-05-18 09:20:41
 tags:
     - firewall
-    - centos7
+    - Linux
 ---
 
 刚接触linux系统时，首先关闭防火墙，再安装运用程序，搭建部署项目。目前，为了做测试以及维护项目安全，需要开启防火墙。
