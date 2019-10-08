@@ -1,7 +1,7 @@
 ---
 title: Hexo主题yelee增加网站阅读统计
 date: 2019-04-09 16:56:24
-tags: 工具使用 yelee
+tags: 工具使用
 ---
 Hexo的主题yelee默认没有对网站访问信息的统计，修改方法如下：
 

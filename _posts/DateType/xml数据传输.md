@@ -3,7 +3,6 @@ title: xml数据传输
 date: 2019-05-02 15:44:12
 tags:
     - xml
-    - DateType
 ---
 
 ## Xml简介

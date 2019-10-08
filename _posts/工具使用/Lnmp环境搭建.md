@@ -3,7 +3,7 @@ title: Lnmp环境搭建
 date: 2019-04-05 19:56:24
 tags: 
     - 工具使用
-    - 虚拟机
+    - vmware
     - lnmp
 ---
 本文介绍lnmp环境搭建，以及PHP文件配置，NGINX文件配置。没有安装Linux的小伙伴可以用VMwarer,在CentOS官网上下载iso镜像文件，在window系统上安装虚拟机。
