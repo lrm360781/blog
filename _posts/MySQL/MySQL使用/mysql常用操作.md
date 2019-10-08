@@ -2,7 +2,7 @@
 title: mysql操作
 date: 2019-03-08 9:29:03
 tags: 
-    - CentOS
+    - Linux
     - MySQL
 ---
 

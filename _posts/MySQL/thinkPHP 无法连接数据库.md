@@ -2,7 +2,7 @@
 title: thinkPHP 无法连接数据库
 date: 2019-04-28 16:24:11
 tags:
-    - mysql
+    - MySQL
     - pdo
 ---
 ## 错误提示
