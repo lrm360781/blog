@@ -1,5 +1,5 @@
 ---
-title: firewall开放端口
+title: firewall端口操作
 date: 2019-05-18 09:20:41
 tags:
     - firewall
@@ -23,8 +23,17 @@ systemctl start firewalld
 systemctl enable firewalld
 #查看开机自启是否生效
 systemctl is-enabled firewalld;echo $?
+#禁止开机自启动防火墙
+systemctl disable firewald
+
 ```
-## 开启指定端口
+
+## 端口操作
+### 查看已开放端口
+```yaml
+firewall-cmd --list-ports
+```
+### 开放指定端口
 开启防火墙之后，之前的部分服务访问不了，那是端口未开放被防火墙拦截了。
 下面为开启防火墙的语法格式：
 ```yaml
@@ -38,5 +47,9 @@ firewall-cmd --zone=public --add-port=9000/tcp --permanent
 返回结果如下，则表明开放端口成功
 ![开放端口](/img_linux/fire_port_2.png)
 
+### 关闭端口
+```yaml
+firewall-cmd --zone=public --remove-port=9000/tcp --permanent
+```
 
 
