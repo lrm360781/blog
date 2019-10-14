@@ -28,3 +28,5 @@ composer命令增加-vvv可输出详细的信息，命令如下：
 ```yaml
 composer -vvv require alibabacloud/sdk
 ```
+
+[composer镜像包官网地址](https://packagist.org/)
