@@ -1,6 +1,6 @@
 ---
 title: root密码、Centos自动联网
-date: 2019-01-03 21:21:01
+date: 2018-11-23 21:21:01
 tags:
     - Linux
 ---
