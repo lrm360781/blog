@@ -28,7 +28,7 @@ tags:
 
 如同生活中的专卖店~客人到adidas专卖店买了一双鞋，这个专卖店就是代理，被代理角色就是adidas厂家，目标角色就是用户。
 
-![image](https://upload-images.jianshu.io/upload_images/6152595-fc82897cfbff873e.png?imageMogr2/auto-orient/strip)
+![image](http://upload-images.jianshu.io/upload_images/6152595-fc82897cfbff873e.png?imageMogr2/auto-orient/strip)
 
 而代理又被分为正向代理与反向代理。
 
@@ -40,7 +40,7 @@ tags:
 
 上述这样的代理模式称为正向代理，正向代理最大的特点是客户端非常明确要访问的服务器地址；服务器只清楚请求来自哪个代理服务器，而不清楚来自哪个具体的客户端；正向代理模式屏蔽或者隐藏了真实客户端信息。
 
-![image](https://upload-images.jianshu.io/upload_images/6152595-d78bb9a776bbe12b.png?imageMogr2/auto-orient/strip)
+![image](http://upload-images.jianshu.io/upload_images/6152595-d78bb9a776bbe12b.png?imageMogr2/auto-orient/strip)
 
 ## 反向代理
 
@@ -52,7 +52,7 @@ tags:
 
 那么反向代理具体是通过什么样的方式实现的分布式的集群操作呢，我们先看一个示意图：
 
-![image](https://upload-images.jianshu.io/upload_images/6152595-ad86af969bb284a6.png?imageMogr2/auto-orient/strip)
+![image](http://upload-images.jianshu.io/upload_images/6152595-ad86af969bb284a6.png?imageMogr2/auto-orient/strip)
 
 通过上述的图解大家就可以看清楚了，多个客户端给服务器发送的请求，nginx服务器接收到之后，按照一定的规则分发给了后端的业务处理服务器进行处理了。此时请求的来源也就是客户端是明确的，但是请求具体由哪台服务器处理的并不明确了，nginx扮演的就是一个反向代理角色。
 
@@ -62,7 +62,7 @@ tags:
 
 通常情况下，我们在实际项目操作时，正向代理和反向代理很有可能会存在在一个应用场景中，正向代理代理客户端的请求去访问目标服务器，目标服务器是一个反向代理服务器，反向代理了多台真实的业务处理服务器。具体的拓扑图如下：
 
-![image](https://upload-images.jianshu.io/upload_images/6152595-f1e7ee0907bf2a15.png?imageMogr2/auto-orient/strip)
+![image](http://upload-images.jianshu.io/upload_images/6152595-f1e7ee0907bf2a15.png?imageMogr2/auto-orient/strip)
 
 # 2. 负载均衡
 
@@ -70,7 +70,7 @@ tags:
 
 我们已经明确了所谓代理服务器的概念，那么接下来，nginx扮演了反向代理服务器的角色，它是以依据什么样的规则进行请求分发的呢？不用的项目应用场景，分发的规则是否可以控制呢？
 
-![image](https://upload-images.jianshu.io/upload_images/6152595-2eacc6b64f99f75f.png?imageMogr2/auto-orient/strip)
+![image](http://upload-images.jianshu.io/upload_images/6152595-2eacc6b64f99f75f.png?imageMogr2/auto-orient/strip)
 
 这里提到的客户端发送的、nginx反向代理服务器接收到的请求数量，就是我们说的负载量。
 
