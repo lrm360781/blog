@@ -21,7 +21,7 @@ final class 类名{
 ## final细节讨论
 (1)	final不能够修饰成员属性
 (2)	final 方法不能被重写，但可以被继承
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8'):
     class A{
@@ -35,7 +35,7 @@ final class 类名{
 ```
 (3)	一般来说，final 类中不会出现final 方法，因为final类都不能被继承，也就不会去重写override final类的方法了
 (4)	final 类 是可以被实例化的
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8'):
     class A{

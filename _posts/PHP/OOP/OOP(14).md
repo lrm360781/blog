@@ -11,7 +11,7 @@ tags:
 [详见官方文档](https://www.php.net/manual/zh/book.reflection.php)
 
 ## 示例
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     
@@ -58,7 +58,7 @@ tags:
 3.	管理大量的未知类
 
 ## tp控制器调度原理
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     

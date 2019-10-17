@@ -17,7 +17,7 @@ tags:
 
 ## 继承的说明
 继承可以解决代码复用，让我们的编程更加靠近人类思维，当多个类存在相同的属性变量和方法时，可以从这些类中抽象出父类，在父类中定义相同的属性和方法，所有子类不需要重新定义这些属性和方法，只需通过
-```yaml
+```php
 class 子类名 extends  父类名{}
 ```
 如此，子类自动拥有父类的属性和方法。
@@ -25,7 +25,7 @@ class 子类名 extends  父类名{}
 
 ## 代码示例
 当子类继承了父类，并不是父类所有的属性和方法，都可以被子类访问，子类只能访问父类的public和protected属性和方法。
-```yaml
+```php
 <?php 
     header('content-type:text/html;charset=utf-8');
     class A{
@@ -87,7 +87,7 @@ class 子类名 extends  父类名{}
 2.子类可以继承其父类的public、protected修饰的变量（属性）和函数（方法）
 3.在创建某个子类对象时，默认情况下会自动调用其父类的构造函数（指在子类没有自定义构造函数时）
 4.如果在子类中需要访问其父类的方法(构造方法/成员方法方法的访问修饰符是public/protected)，可以使用父类::方法名(或者 parent::方法名 ) 来完成
-````yaml
+````php
 <?php 
     header('content-type:text/html;charset=utf-8');
     class A{
@@ -112,7 +112,7 @@ class 子类名 extends  父类名{}
 在OOP中，可以调用相同的函数名，实现调用不同的结果，比如通过函数不同的参数个数或者类型来区分不同函数。
 PHP要通过魔术方法中的__call
 ### 代码示例
-```yaml
+```php
 <?php 
     header('content-type:text/html;charset=utf-8');
     class   Person{
@@ -148,7 +148,7 @@ PHP要通过魔术方法中的__call
 当我们去给一个不存在的属性赋值时，类会动态的创建一个对应的属性，这个属性是public。
 1.若程序员不干预，则使用默认机制来处理，给当前对象创建public属性
 2.禁止属性重载
-```yaml
+```php
 <?php
     header('content-type:text/htnl;charset=utf-8');
     //属性的重载
@@ -165,7 +165,7 @@ PHP要通过魔术方法中的__call
     var_dump($cat);
 ```
 3.写一个数组属性和方法，来管理我们的重载的属性
-```yaml
+```php
 <?php
     header('content-type:text/htnl;charset=utf-8');
     //属性的重载
@@ -205,7 +205,7 @@ PHP要通过魔术方法中的__call
 (3)	如果子类的方法重写父类的方法，要求方法名和参数个数完全一样，如果父类使用了类型约束，则子类的这个方法也必须有相同的类型.
 ### 方法重写的细节说明
 (1)	如果在子类中需要访问其父类的方法(public/protected)，可以使用父类::方法名 或者 parent::方法名 来完成。
-```yaml
+```php
 class B extends A{
   public function mvc(){
     $this->oop(); //调用父类oop方法，如果oop没有被重写
@@ -217,7 +217,7 @@ class B extends A{
 ```
 (2)	子类的方法的参数个数 ,方法名称,要和父类方法的参数个数,方法名称一样
 (3)	如果父类的方法的参数使用了类型约束，还必须保证数据类型一致, 即子类的这个方法也需要使用相应的类型约束
-```yaml
+```php
 class A{
   public function mvc(array $name){
     echo 'father';
@@ -235,7 +235,7 @@ class B extends A{
 ## 属性重写
 (1) 属性重写只能对public、protected的属性进行重写
 (2) 属性重写时，也不能缩小父类的属性控制访问
-```yaml
+```php
 class A{
   public $n1=100;
   protected $n2='oop';
@@ -252,7 +252,7 @@ var_dump($b);
 ```
 ## 类型约束
 PHP 5 可以使用类型约束。函数的参数可以指定必须为对象（在函数原型里面指定类的名字），接口，数组（PHP 5.1 起）或者 callable（PHP 5.4 起）。不过如果使用 NULL作为参数的默认值，那么在调用函数的时候依然可以使用 NULL 作为实参。
-```yaml
+```php
 //数据类型分类为 A类A Array数组 callable可调用
 function oop(A $n1,Array $n2,callable $n3){
   echo '<pre>';

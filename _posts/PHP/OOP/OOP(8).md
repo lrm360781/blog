@@ -11,7 +11,7 @@ tags:
 (2) 当一个函数接收到不同对象时，会自动的判断并调用对应的方法.
 (3) 多态利于类的维护和扩展
 示例：
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     //食物类
@@ -82,7 +82,7 @@ tags:
 
 ## 类名可以是字符串变量
 举例说明
-```yaml
+```php
 $class_name='Cat';
 $person = new $class_name();
 ```

@@ -7,7 +7,7 @@ tags:
 ---
 ## 实际需求
 在编写一个父类时， 有个方法是不确定的，比如：
-```yaml
+```php
 class Animal {
 	public $name;
 	public function cry(){
@@ -18,7 +18,7 @@ class Animal {
 cry 这里是不确定，因此, oop中，可以将这样的方法做成抽象方法，类就做成抽象类。
 
 ## 基本概念
-```yaml
+```php
 //当一个类中，含有一个抽象方法时，则该类就必须声明为abstract类
 abstract class Animal{
   public $name;
@@ -47,7 +47,7 @@ $cat->cry();
 (4)	抽象方法不能有函数体
 (5)	如果一个类继承了某个抽象类，则它必须实现该抽象类的所有抽象方法.(除非它自己也声明为抽象类)[多级继承]
 示例：
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8'):
     abstract class DB{

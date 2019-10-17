@@ -16,7 +16,7 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 不能在类外直接访问protected、private的方法。
 
 类外通过魔术方法__get和__set来实现对protested、private的操作
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     class Person{
@@ -63,7 +63,7 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 
 对每一个private 和 protected 属性提供一对get/set方法, 这样就可以分别控制，各个属性，并进行验证.
 举例说明:
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     class Person{
@@ -103,7 +103,7 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 (3)	如果希望同时操作多个属性，选择第三种
 (4)	项目经理要求.
 ## 对象运算符连用
-```yaml
+```php
 <?php
 	header('content-type:text/html;charset=utf-8');	
 	//单例模式

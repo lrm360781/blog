@@ -21,7 +21,7 @@ Xml用来传输数据，HTML用来展示数据
 ### 语法规则
 Xml语法要求很严格，xml必须有根节点，且是成对标签。用浏览器打开就可以检验书写的xml是否正确。
 Xml头申明：不强制要求，可有可无，但是建议书写
-```yaml
+```xml
 <?xml version=”1.0” encoding=”utf-8” ?> xml头申明
 <root>       根节点
 	<user>lms</user>
@@ -39,7 +39,7 @@ xml注释，与HTML相同
 属性就是表示标签自身的一些额外信息，无多大作用；而且，在解析xml数据是，属性会带来额外的解析代码。
 CDATA
 CDATA，xml不解析的内容，语法如下。
-```ejs
+```xml
 <abc><![CDATA[…不解析内容…]]></abc>
 ```
 注意；特殊字符较少时，使用实体替换。
@@ -54,7 +54,7 @@ Simplexml_load_file(); 解析xml文件
  ![DOM](/images/xml.jpg)
 ### Simplexml类库
 XML文件
-```yaml
+```xml
 	<root>
 		<user>
 			<name>lms</name>
@@ -67,7 +67,7 @@ XML文件
 	</root>
 ```
 PHP文件
-```yaml
+```php
 <?php
 //simplexml_load_file()解析xml文档，返回PHP对象
 $x=simplexml_load_file('test.xml');
@@ -77,7 +77,7 @@ echo $x->user;
 ?>
 ```
 ### 遍历xml数据
-```yaml
+```php
 <?php
 $x=simplexml_load_file('test.xml');
 foreach($x->user as $v){
@@ -91,7 +91,7 @@ for($i=0;$i<$c;$i++)
 ?>
 ```
 ### 添加节点
-```yaml
+```php
 <?php
 //simplexml_load_file()解析xml文档，返回PHP对象
 $x=simplexml_load_file('test.xml');
@@ -111,7 +111,7 @@ simplexml_load_string();接收字符串
 ### 概述
 一门专门用来查找XML数据内容的语言。用来在XML文档中对元素及属性进行遍历
 ### 语法
-```yaml
+```php
 <?php
 $x=simplexml_load_file('test.xml');
 //xpath查找后返回数组，数组中的值仍然是个对象

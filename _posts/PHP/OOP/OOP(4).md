@@ -21,13 +21,13 @@ tags:
 ## 访问静态属性
 ### 类内访问
 有两种访问方式
-```yaml
+```php
 self::$静态变量名
 类名::$静态变量名
 其中 :: 表示范围解析符
 ```
 示例：
-```yaml
+```php
 <?php 
 	header('content-type:text/html;charset=utf-8');
 	class Rms{
@@ -46,7 +46,7 @@ self::$静态变量名
 ### 类外访问
 类外访问静态变量，静态变量需时public，否则无法直接访问；
 访问形式为：类名::$变量名；
-```yaml
+```php
 echo Rms::$name;
 ```
 ## $this与self区别
@@ -56,7 +56,7 @@ $this->
 2. self是类范畴（指向类），$this是对象实例（指向对象实例）
 
 ## 示例
-```yaml
+```php
 <?php
 	header('content-type:text/html;charset=utf-8');
 	/*

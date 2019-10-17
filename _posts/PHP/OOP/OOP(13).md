@@ -7,7 +7,7 @@ tags:
 ---
 ## 对象遍历
 所谓对象遍历，指的是对某个对象的属性进行遍历。
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     
@@ -44,7 +44,7 @@ tags:
 ## php的内置标准类
 如果，我们希望把一些数据，以对象的属性的方式存储，同时我们又不想定义一个类，可以考虑使用 PHP内置标准类 stdClass [standard标准]
 php的内置标准类 stdClass , 这个是系统默认提供，不需要程序员去创建，而是直接使用就可以.
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     $obj=new stdClass;
@@ -56,7 +56,7 @@ php的内置标准类 stdClass , 这个是系统默认提供，不需要程序�
 ```
 ## 转换数据类型
 在实际开发中，有时会看到有人将数组或者基本数据类转成对象，示例：
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     $person=array('name'=>'qf','job'=>'zc','skill'=>'sbz','house'=>array('name'=>'dl','price'=>300));
@@ -88,7 +88,7 @@ php的内置标准类 stdClass , 这个是系统默认提供，不需要程序�
 ## 对象序列化和反序列化
 所谓对象序列化是指: 将一个对象转换成一个字符串，这个字符串包括 属性名，属性值，属性类型， 和该对象对应的类名。简单的说明就把一个对象的数据和数据类型转成字符串。
 示例：
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     class Cat{
@@ -107,7 +107,7 @@ php的内置标准类 stdClass , 这个是系统默认提供，不需要程序�
     file_put_contents('d:/cat.log',serialize($cat));
 ```
 反序列化：所谓反序列化就是指，将一个序列化的字符串，重新恢复成对应的对象。
-```yaml
+```php
 class Cat{
   public $name;
   protected $age;
@@ -136,7 +136,7 @@ echo '<br> name='.$cat_obj->name;
 代码说明:
 (3)	与之相反， unserialize() 会检查是否存在一个 __wakeup()方法。如果存在，则会先调用 __wakeup 方法，预先准备对象需要的资源。 
 __wakeup() 经常用在反序列化操作中，例如重新建立数据库连接，或执行其它初始化操作。
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     class Cat{
@@ -169,7 +169,7 @@ __wakeup() 经常用在反序列化操作中，例如重新建立数据库连接
     var_dump($cat_obj);
 ```
 ## 类与对象的相关函数
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     class A{}
@@ -203,7 +203,7 @@ __wakeup() 经常用在反序列化操作中，例如重新建立数据库连接
 ## traits
 实际需求如下图
 ![traits](/images/oop13.png)
-```yaml
+```php
 <?php
     header('content-type:text/html;charset=utf-8');
     trait my_code{

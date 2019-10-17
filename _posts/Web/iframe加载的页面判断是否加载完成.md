@@ -11,7 +11,7 @@ tags:
 ```
 ## 判断iframe加载情况
 (1)
-```yaml
+```javascript
 var iframe = document.createElement("iframe");
 iframe.src = "http://sc.jb51.net";
 if (iframe.attachEvent) {
@@ -26,7 +26,7 @@ if (iframe.attachEvent) {
 }
 ```
 (2)
-```yaml
+```javascript
 element.onload = element.onreadystatechange = function(ev) {
     if (ev.readyState && ev.readyState != 'complete') {
         return;

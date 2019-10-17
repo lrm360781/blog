@@ -7,7 +7,7 @@ tags:
 ---
 基本介绍：当程序员需要对静态属性进行操作时，可以定义静态方法来处理, 静态方法是专门用于操作静态属性。
 静态方法的基本语法：
-```yaml
+```php
 class 类{
   访问修饰符 static function 函数名(形参){
     //函数体
@@ -19,7 +19,7 @@ class 类{
 ## 运用
 ### 在类外部调用静态方法:  
 类名::静态方法名 或者 对象名->静态方法名 或者 对象名::静态方法（后面两种语法支持，但是不推荐）
-```yaml
+```php
 <?php 
 	header('content-type:text/html;charset=utf-8');
 	class Rms{
@@ -40,7 +40,7 @@ class 类{
 	$ms::showName();
 ```
 ### 类内调用静态方法
-```yaml
+```php
 <?php 
 	header('content-type:text/html;charset=utf-8');
 	class Rms{
@@ -67,7 +67,7 @@ class 类{
 注：静态方法中只能访问静态属性，不能访问非静态属性；普通的成员方法，可以访问静态属性和非静态属性。
 ## 示例，单例模式
 该类只能被实例化一次
-```yaml
+```php
 <?php
 	header('content-type:text/html;charset=utf-8');
 	

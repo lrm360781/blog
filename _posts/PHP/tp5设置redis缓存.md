@@ -14,7 +14,7 @@ chmod -R 777 tp5   赋予该文件最高权限
 ```
 ## 修改tp5配置文件
 打开config.php文件，找到cache数组，替换为如下内容。
-```yaml
+```php
 'cache'                  => [
         //使用复合缓存类型
         'type'   => 'complex',
@@ -47,7 +47,7 @@ chmod -R 777 tp5   赋予该文件最高权限
 ```
 ## 测试
 将默认首页改为如下内容，输出结果为18，则测试成功。
-```yaml
+```php
 <?php
 namespace app\index\controller;
 use think\Cache;

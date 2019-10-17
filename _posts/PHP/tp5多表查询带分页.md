@@ -15,7 +15,7 @@ where条件查询
 order排序差
 
 分页：每页10条
-```yaml
+```php
     //多表联合查询
     $data = Db::name('article')
         ->alias('a')
@@ -41,7 +41,7 @@ order排序差
         return $this->fetch();
 ```
 数据输出
-```yaml
+```html
 <div class="item-box-rt flex" style="">
 	<div class="item-content">
 		<a class="item-title" href="{:url('detail/detail',['type'=>99,'id'=>$vo['art_id']])}">{$vo.title}</a>
@@ -79,6 +79,6 @@ order排序差
 </div>
 ```
 页面标识
-```yaml
+```html
 <div class="pagination-box">{$page}</div>
 ```

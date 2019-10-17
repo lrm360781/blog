@@ -11,7 +11,7 @@ tags:
 
 ## 解决方案
 实际开发中一个类，对应一个文件，所以可以在a.php文件中，存入类与文件路径的对应关系，在需要的时候引入即可。代码如下：
-```yaml
+```php
 <?php
 	//a.php  文件
 	//类名和路径的映射关系数组
@@ -22,7 +22,7 @@ tags:
 	);
 ```
 以下为自动加载，实例化代码
-```yaml
+```php
 <?php 
 	header('content-type:text/html;charset=utf-8');
 	
@@ -39,7 +39,7 @@ tags:
 ## spl_autoload_register
 spl_autoload_register函数作用，自主定义自动加载函数，相当于将__autoload函数替换为你定义的函数，达到自动加载的目的。
 示例如下：
-```yaml
+```php
 <?php 
 	header('content-type:text/html;charset=utf-8');
 	

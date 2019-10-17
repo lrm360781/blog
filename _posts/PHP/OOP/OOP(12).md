@@ -19,7 +19,7 @@ class  类名{
 (2)	常量名的规范是 XXX_YYY , 全部大写，然后使用下划线间隔
 (3)	类常量都是public , 但是我们不要使用public 去修饰.
 
-```yaml
+```php
 <?php 
     header('content-type:text/html;charset=utf-8');
     class Clerk{

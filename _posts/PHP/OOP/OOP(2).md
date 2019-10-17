@@ -9,7 +9,7 @@ tags:
 ## 魔术方法
 魔术方法由系统提供，是在满足某个条件时，由系统自动的调用；所有的魔术方法都是由__双下划线开头，程序员在定义函数时不要使用__开头，除非你要使用其魔术功能。
 魔术方法列表
-```yaml
+```php
 __construct  //在使用 new关键字使用类实例化一个对象时自动执行；对对象属性进行初始化
 __destruct   //在对象被销毁（unset或PHP执行结束）时自动执行；释放变量，通常用于释放对象占用的第三方资源
 __call       //当调用方法不存在时 该方法自动调用
@@ -39,7 +39,7 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
 
 ### __set和 __get
 当程序员要在类外给不可访问的属性赋值时，系统会调用 __set方法；当程序员要在类外获取不可访问的属性赋值时，系统会调用 __get方法。
-```yaml
+```php
 <?php
 	header('content-type:text/html;charset=utf-8');
 	
@@ -85,7 +85,7 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
 
 ### __toString函数
 当我们希望将一个对象当做字符串来输出时，就会触发 __toString魔术方法.
-```yaml
+```php
 <?php
 	header('content-type:text/html;charset=utf-8');
 	
@@ -110,7 +110,7 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
 ```
 ### __clone
 当我们需要将一个对象完全的赋值一份， 保证两个对象的属性和属性值一样，但是他们的数据库空间独立，则可以使用对象克隆。
-```yaml
+```php
 <?php
 	header('content-type:text/html;charset=utf-8');
 	
@@ -154,7 +154,7 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
 (2)	不可以访问的成员方法的是指(1. 该成员方法不存在， 2. 成员方法是protected或者 private)
 
 **示例** ，通过__call调用受保护（protected）的方法：
-```yaml
+```php
 <?php
 	header('content-type:text/html;charset=utf-8');
 	
@@ -184,7 +184,7 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
 ```
 ### __callStatic
 当我们调用一个不可访问（protected/private/不存在）的静态方法时，__callStatic魔术方法就会被系统调用。
-```yaml
+```php
 class A{
   public static function __callStatic($method_name,$parameters){
     echo $method_name;
@@ -206,7 +206,7 @@ A::rms();
 ```
 ### __callStatic
 当我们调用一个不可访问（protected/private/不存在）的静态方法时，__callStatic魔术方法就会被系统调用。
-```yaml
+```php
 class A{
   public static function __callStatic($method_name,$parameters){
     echo $method_name;
