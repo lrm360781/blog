@@ -3,6 +3,8 @@ title: tp5多表联合查询分页显示
 date: 2019-02-20 21:14:13
 tags:
     - tp
+    - MySQL
+    - 分页
 ---
 以主表article查询，起别名a，，联合表art_category，起别名c，条件是id等同，用join
 
