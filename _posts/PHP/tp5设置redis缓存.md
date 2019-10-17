@@ -2,7 +2,7 @@
 title: tp5设置redis缓存
 date: 2019-06-25 10:28:10
 tags:
-    - tp5
+    - tp
     - redis
 ---
 在Linux部署完ThinkPHP项目后，如果需要使用缓存功能，则需赋予项目文件写的权限。

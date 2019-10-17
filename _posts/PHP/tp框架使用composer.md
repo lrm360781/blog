@@ -2,7 +2,7 @@
 title: tp框架使用composer
 date: 2019-9-17 19:28:10
 tags:
-    - tp5
+    - tp
     - composer
 ---
 安装好composer后，打开cmd切换到tp框架目录下，执行composer，引入你需要的插件。

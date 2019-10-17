@@ -23,8 +23,6 @@ order排序差
         ->order('a.art_id','desc')
         ->paginate(10);
  
- 
- 
     //多表联合查询-内连接
     $articleList = Db::name("tp_art_rela_category")
         ->alias("arc")
