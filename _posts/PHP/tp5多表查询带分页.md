@@ -46,27 +46,32 @@ order排序差
 	<div class="item-content">
 		<a class="item-title" href="{:url('detail/detail',['type'=>99,'id'=>$vo['art_id']])}">{$vo.title}</a>
 		<div class="sm-hidden md-hidden item-desc">
-	<a href="{:url('detail/detail',['type'=>99,'id'=>$vo['art_id']])}">{$vo.art_desc}</a>
+	      <a href="{:url('detail/detail',['type'=>99,'id'=>$vo['art_id']])}">{$vo.art_desc}</a>
 		</div>
-		</div>
+	</div>
 	<div class="item-info flex text-overflow">
         <p>
-            <i class="fa {switch name='$vo.category_pid'}
+            <i class="fa 
+              {switch name='$vo.category_pid'}
                 {case value='1'}fa-jsfiddle{/case}
                 {case value='4'}fa-download{/case}
                 {default /}fa-download
-            {/switch}" 
-            style="font-size: 1.2rem;color:#e2712c;" aria-hidden="true" 
-            ></i>{$vo.category_pid}/
-            <span>{switch name='$vo.category_pid'}
-                {case value='1'}vv{/case}
-                {case value='4'}44{/case}
-                {default /}其他
-            {/switch}</span>
-             -id：{$vo.category_id}
+              {/switch}
+              "style="font-size: 1.2rem;color:#e2712c;" aria-hidden="true" >
+            </i>    
+            {$vo.category_pid}      
+            <span>
+                {switch name='$vo.category_pid'}
+                    {case value='1'}vv{/case}
+                    {case value='4'}44{/case}
+                    {default /}其他
+                {/switch}
+            </span>
+            id:{$vo.category_id}
         </p>
-        <p><i class="fa fa-clock-o" aria-hidden="true"></i>
-            {$vo.create_time|date="Y-m-d",###}
+        <p>
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          {$vo.create_time|date="Y-m-d",###}
         </p>
         <p><i class="fa fa-heart-o" aria-hidden="true"></i>321</p>
         <p><i class="fa fa-download" aria-hidden="true"></i><a href="#">下载 </a></p>
