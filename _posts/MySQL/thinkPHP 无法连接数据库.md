@@ -10,7 +10,8 @@ thinkPHP连接数据库时，出现如下报错
 ```yaml
 could not find driver
 ```
-错误定位到PDO
+找不到驱动所致，没有开启相应的拓展。本文以未开启PDO为例。
+根据错误提示信息，错误定位到PDO。
 ![](/images/sql-pdo-1.jpg)
 ## 检测定位错误
 使用phpinfo();函数，检查PDO状态。按**Ctrl+f**，输入pdo。
