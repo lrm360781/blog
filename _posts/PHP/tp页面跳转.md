@@ -88,6 +88,22 @@ class Index extends \think\Controller
 ### 跨模块
 首先创建一个demo模块，模块下创建控制器Login.php，把上个例子的Login.php的内容拷贝过去，修改下命名空间，保存。
 
+```php
+<?php
+namespace app\demo\controller;  //改为demo控制器
+class Login extends \think\Controller
+{
+  public function ok()
+  {
+      return '欢迎使用本系统';
+  }
+  public function login()
+  {
+      return '登陆页面';
+  }
+}
+```
+
 然后修改下Index控制器：
 ```php
 public function hello($name)
