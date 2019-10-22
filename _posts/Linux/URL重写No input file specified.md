@@ -3,12 +3,12 @@ title: URL重写
 date: 2019-06-02 16:09:49
 tags:
     - 部署
-    - TP5
+    - tp
 ---
  
  ## 错误示例
  页面无法跳转，错误提示**No input file specified.**
- 原因：这是URL地址的问题，系统无法找到文件；当你填写完整的路径（http://serverName/index.php/模块/控制器/操作/[参数名/参数值...]）时能正常访问。
+ 原因：这是URL地址的问题，系统无法找到文件；当你填写完整的路径（**http://serverName/index.php/模块/控制器/操作/[参数名/参数值...]**）时能正常访问。
  解决方案如下。
  ## Apache环境
  1. 打开httpd.conf文件，搜索**mod_rewrite.so**,将前面的“#”去掉。

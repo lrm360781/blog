@@ -13,7 +13,7 @@ tags:
 (1)
 ```javascript
 var iframe = document.createElement("iframe");
-iframe.src = "http://sc.jb51.net";
+iframe.src = "https://www.rms360.top";
 if (iframe.attachEvent) {
     iframe.attachEvent("onload",
     function() {
@@ -24,6 +24,7 @@ if (iframe.attachEvent) {
         alert("Local iframe is now loaded.");
     };
 }
+document.body.appendChild(iframe);
 ```
 (2)
 ```javascript
