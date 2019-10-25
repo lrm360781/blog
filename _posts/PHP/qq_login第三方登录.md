@@ -84,8 +84,8 @@ class Index
         $res = get_request($urls);
         dump(json_decode($res, true));
 
-//        header('Content-Type: application/json; charset=utf-8');
-//        exit(json_encode($_GET));
+        //header('Content-Type: application/json; charset=utf-8');
+        //exit(json_encode($_GET));
     }
 
     protected function getAccessToken($code)
@@ -112,42 +112,42 @@ class Index
 公共函数
 ----
 ```php
-/**
- * 发送get请求
- * @param $url 请求url
- * @param $keysArr 查询字符串
- * @return mixed
- */
-function get_request($url, $keysArr = array())
-{
-    if ($keysArr) {
-        $valueArr = array();
-        foreach ($keysArr as $key => $val) {
-            $valueArr[] = "$key=$val";
+    /**
+     * 发送get请求
+     * @param $url 请求url
+     * @param $keysArr 查询字符串
+     * @return mixed
+     */
+    function get_request($url, $keysArr = array())
+    {
+        if ($keysArr) {
+            $valueArr = array();
+            foreach ($keysArr as $key => $val) {
+                $valueArr[] = "$key=$val";
+            }
+            $keyStr = implode("&", $valueArr);
+            $request_url = $url . '?' . $keyStr;
+        } else {
+            $request_url = $url;
         }
-        $keyStr = implode("&", $valueArr);
-        $request_url = $url . '?' . $keyStr;
-    } else {
-        $request_url = $url;
+        //echo $request_url;
+    
+    
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_URL, $request_url);
+        $response = curl_exec($ch);
+        curl_close($ch);
+    
+        //var_dump($response);
+    
+        //-------请求为空
+        if (empty($response)) {
+            return null;
+        }
+    
+        return $response;
     }
-    //echo $request_url;
-
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    curl_setopt($ch, CURLOPT_URL, $request_url);
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    //var_dump($response);
-
-    //-------请求为空
-    if (empty($response)) {
-        return null;
-    }
-
-    return $response;
-}
 ```
 
