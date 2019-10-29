@@ -34,7 +34,7 @@ return [
     'app_status' => 'home',
 ];
 ```
-然后在config目录下创建home.php
+然后在config目录下创建home.php与app_status的值想同，这里可以创建多个文件，以便不同环境办公，
 home.php代码如下:application目录中的database.php的代码内容拷贝到home.php
 ```php
 <?php
