@@ -43,3 +43,8 @@ history.back()//返回上一页
 
 window.history.forward()  //返回下一页
 ```
+## 返回上一页并刷新
+
+```html
+<a href="#" onclick="self.location=document.referrer;">返回</a> 
+```
