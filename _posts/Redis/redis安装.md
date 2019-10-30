@@ -1,5 +1,5 @@
 ---
-title: php-redis安装
+title: redis与php-redis安装
 date: 2019-03-16 10:37:33
 tags: 
     - redis
