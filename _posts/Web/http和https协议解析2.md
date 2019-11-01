@@ -25,7 +25,7 @@ HTTP属于TCP/IP模型中的运用层协议，所以通信的过程其实是对�
 
 ![image](http://img-blog.csdn.net/20180719094756330?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9taW5nMTAwMDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 </div>
-报文从运用层传送到运输层，运输层通过TCP三次握手和服务器建立连接，四次挥手释放连接。
+报文从应用层传送到传输层，传输层通过TCP三次握手和服务器建立连接，四次挥手释放连接。
 <div align="center">
 
 ![image](http://img-blog.csdn.net/20180719110828114?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9taW5nMTAwMDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
