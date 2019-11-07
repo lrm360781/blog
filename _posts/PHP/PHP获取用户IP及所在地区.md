@@ -6,12 +6,10 @@ tags:
     - IP
 ---
 ## 前言
-
 在开发时，有些项目需要获取用户IP并记录到数据库中。下面介绍3种获取用户数据库的方法，获取用户所在地。
 
 ## 获取用户IP
 ```php
-
 //方案一
 function getip(){
     if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown")) 
