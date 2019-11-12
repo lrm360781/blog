@@ -32,7 +32,7 @@ tags:
        }
       }
      }
-     $cat=new  Cat();
+     $cat=new  Cat('xh',12,'dm','sd');
      //类外遍历对象
      foreach($cat as $key=>$val){
       echo "<br>$key=$val";
@@ -195,7 +195,7 @@ __wakeup() 经常用在反序列化操作中，例如重新建立数据库连接
         echo '<br>没有该属性，无法使用';
       }
       echo '<br>类名'.get_class($cat);
-      echo '<br>$cat的父类;.get_parent_class($cat);
+      echo '<br>$cat的父类'.get_parent_class($cat);
     }else{
       echo '<br>类不存在';
     }
@@ -207,13 +207,13 @@ __wakeup() 经常用在反序列化操作中，例如重新建立数据库连接
 <?php
     header('content-type:text/html;charset=utf-8');
     trait my_code{
-      function getSum($n1.$n2){
+      function getSum($n1,$n2){
         return $n1+$n2;
       }
-      function getSub($n1.$n2){
+      function getSub($n1,$n2){
         return $n1-$n2;
       }
-      function getMax($n1.$n2,$n3){
+      function getMax($n1,$n2,$n3){
         return max($n1,$n2,$n3);
       }
     }
@@ -226,7 +226,7 @@ __wakeup() 经常用在反序列化操作中，例如重新建立数据库连接
       use my_code;
     }
     $b=new B();
-    echo $b->getSum(10.20);
-    echo $b->getSub(10.20);
+    echo $b->getSum(10,20);
+    echo $b->getSub(10,20);
 ```
 注：引入trait代码段，如果父类有和trait代码段相同的方法时，那么这时相当于与方法重写，以trait中的方法优先级高。
