@@ -14,8 +14,8 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 ## 具体实现
 在PHP中，提供了三种访问修饰符public、protected和private；
 不能在类外直接访问protected、private的方法。
-
-类外通过魔术方法__get和__set来实现对protested、private的操作
+### 方案一
+类外通过魔术方法\_\_get和\_\_set来实现对protested、private的操作
 ```php
 <?php
     header('content-type:text/html;charset=utf-8');
@@ -60,7 +60,7 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 总结
 优点： 简单，一对__set 和 __get 就可以搞定所有的private , protected属性
 缺点:  不够灵活，没有办法对各个属性进行控制和验证.
-
+### 方案二
 对每一个private 和 protected 属性提供一对get/set方法, 这样就可以分别控制，各个属性，并进行验证.
 举例说明:
 ```php
@@ -97,11 +97,94 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 (1)	优点: 可以对每个属性进行验证，因此很灵活.
 (2)	缺点: 会造成有比较多的setXxx 和 getXxx方法，但是这个没有什么大的问题.
 (3)	推荐使用这种方法，在实际开发中，这种方式比较多.
+### 方案三	
+写一个成员方法，可以根据业务逻辑，一次性对多个属性进行批量操作
+```php
+<?php
+	header('content-type:text/html;charset=utf-8');
+
+	//Movie(名称，导演，成本(protected)，票房[ticket_office](private))
+	//updateInfo() showAllInfo()
+
+	class Movie{
+		public $name;
+		public $director;
+		protected $cost;
+		private $ticketOffice;
+
+		public function __construct($name, $director, $cost){
+			$this->name = $name;
+			$this->director = $director;
+			$this->cost = $cost;
+		}
+
+		//显示一下电影信息
+		public function showAllInfo(){
+			echo '<br> 电影的信息如下:';
+			echo '<br> name = ' . $this->name;
+			echo '<br> director = ' . $this->director;
+			echo '<br> cost = ' . $this->cost;
+			echo '<br> tickeoffice = ' . $this->ticketOffice;
+		}
+
+		public function updateInfo($director, $cost, $ticketOffice){
+
+			//结合setXxx 来完成
+			$this->setDirector($director);
+			$this->setCost($cost);
+			$this->setTicketOffice($ticketOffice);
+			
+		}
+
+		//setXxx GetXxx
+		public function SetDirector($director){
+			$this->director = $director;
+		}
+		
+		public function getDirector(){
+			return $this->director;
+		}
+
+		public function setCost($cost){
+			
+			//加入数据的验证和判断
+			if(is_numeric($cost) && $cost > 0.0){
+				$this->cost = $cost;
+			}else{
+				echo '<br> 输入成本格式有问题 ';
+			}
+		}
+
+		public function getCost(){
+			return $this->cost;
+		}
+
+		public function setTicketOffice($ticketOffice){
+			//加入数据的验证和判断
+			if(is_numeric($ticketOffice) && $ticketOffice > 0.0){
+				$this->ticketOffice = $ticketOffice;
+			}else{
+				echo '<br> 输入票房格式有问题 ';
+			}
+		}
+		public function getTicketOffice(){
+			return $this->ticketOffice;
+		}
+	}
+
+	$movie = new Movie('葫芦娃', '老爷子', 60000);
+
+	$movie->showAllInfo();
+	echo '<br>***********<br>';
+	$movie->updateInfo('老韩', 4000, 89000);
+	$movie->showAllInfo();
+
+``` 
 ## 开发中，如何选择操作方式
 (1)	如果我们希望直接通过 $对象名->属性名的方式来操作属性，则使用__set 和 __get 函数即可
 (2)	如果我们希望对各个属性分别进行验证，则使用setXxx 和 getXxx
 (3)	如果希望同时操作多个属性，选择第三种
-(4)	项目经理要求.
+(4)	项目经理要求
 ## 对象运算符连用
 ```php
 <?php
