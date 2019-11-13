@@ -15,9 +15,7 @@ isset函数是检测变量是否设置
 
     若变量不存在则返回FALSE
     
-    若变量存在且其值为NULL，也返回FALSE
-    
-    若变量存在且值不为NULL，则返回TURE
+    若变量存在且其值为NULL，也返回FALSE，否则返回TURE
     
     同时检查多个变量时，每个单项都符号上一条要求时才返回TRUE,否则结果为FALSE
 
@@ -48,9 +46,7 @@ empty函数
 
     若变量不存在则返回TRUE
     
-    若变量存在且值为""、0、"0"、NULL、、FALSE、array()、var $var;以及没有任何属性的对象，则返回TURE
-    
-    若变量存在且值不为""、0、"0"、NULL、、FALSE、array()、var $var;以及没有任何属性的对象，则返回FALSE
+    若变量存在且值为""、0、"0"、NULL、FALSE、array()、var $var;以及没有任何属性的对象，则返回TURE
 empty()只能用于变量，传递任何其它参数都将造成Paser error而终止运行
 
 ```php
@@ -74,5 +70,6 @@ echo '$var is not set at all';
 当要判断一个变量是否已经赋予数据且补位空，可以用empty函数
 
 当要判断一个变量存在且不为空，先isset函数，再用empty函数
+
 两者之间的联系：empty($var) 等价于 !isset($var)||$var==false;
 警告：isset()empty()只能用于变量，因为传递任何其它参数都将造成解析错误。若想检测常量是否已设置，可使用defined()函数。
