@@ -8,9 +8,14 @@ tags:
 
 ## 常用语句
 
-查看MySQL运行状态
+MySQL启动时命令
 ```yaml
+查看数据库状态
 systemctl status mysqld
+开启服务
+service mysqld start
+重启服务
+service mysqld restart
 ```
 进入数据库
 ```yaml
