@@ -26,7 +26,7 @@ use 数据库名称
 ```
 显示数据库中的数据表
 ```yaml
-show databases;
+show tables;
 ```
 添加用户
 ```yaml
