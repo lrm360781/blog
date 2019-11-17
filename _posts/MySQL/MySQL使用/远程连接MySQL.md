@@ -23,9 +23,9 @@ mysql> flush privileges;
  ```ejs
  iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
  
- service iptables stop
+ service iptables stop  停止
  
- chkconfig iptables off
+ chkconfig iptables off 关闭
 ```
  使用navicat连接,输入虚拟机IP地址（阿里云、华为云IP都可），用户名及密码。
 ![img](/img_mysql/lianjie.png)

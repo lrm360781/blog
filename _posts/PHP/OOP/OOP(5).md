@@ -109,6 +109,6 @@ class 类{
 		//防止克隆
 		public function __clone(){}
 	}	
-	$dao = DaoMysql::getSingleton('127.0.0.1','root','lrm360781');	
+	$dao = DaoMysql::getSingleton('127.0.0.1','root','123456');	
 	var_dump($dao);
 ```

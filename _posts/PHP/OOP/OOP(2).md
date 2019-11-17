@@ -78,13 +78,13 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
 	echo $a->food='nc'; //修改受保护的值
 ```
 ###  __isset和 __unset
-(1)	当对不可访问的属性进行了 isset($对象名->属性)， empty($对象名->属性)操作，那么 __isset 函数就会被系统调用。
-(2)	当对不可访问的属性进行了 unset($对象名->属性)， 那么__unset函数就会被系统调用
+(1)	当对不可访问的属性进行了 isset($对象名->属性)， empty($对象名->属性)操作，那么 \_\_isset 函数就会被系统调用。
+(2)	当对不可访问的属性进行了 unset($对象名->属性)， 那么\_\_unset函数就会被系统调用
 如果已经使用 unset() 释放了一个变量之后，它将不再是 isset()。若使用 isset() 测试一个被设置成 NULL 的变量，将返回 FALSE。同时要注意的是 null 字符（"\0"）并不等同于 PHP 的 NULL 常量。
 如果一次传入多个参数，那么 isset() 只有在全部参数都以被设置时返回 TRUE 计算过程从左至右，中途遇到没有设置的变量时就会立即停止。  
 
 ### __toString函数
-当我们希望将一个对象当做字符串来输出时，就会触发 __toString魔术方法.
+当我们希望将一个对象当做字符串来输出时，就会触发 \_\_toString魔术方法.
 ```php
 <?php
 	header('content-type:text/html;charset=utf-8');
@@ -150,10 +150,10 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
     }
 ```
 ### __call
-(1)	当我们调了一个不可以访问的成员方法时，__call魔术方法就会被调用.
+(1)	当我们调了一个不可以访问的成员方法时,\_\_call魔术方法就会被调用.
 (2)	不可以访问的成员方法的是指(1. 该成员方法不存在， 2. 成员方法是protected或者 private)
 
-**示例** ，通过__call调用受保护（protected）的方法：
+**示例** ，通过\_\_call调用受保护（protected）的方法：
 ```php
 <?php
 	header('content-type:text/html;charset=utf-8');
@@ -184,7 +184,7 @@ __invoke      //在对象被当成函数使用时自动执行；兼容对象的�
 ```
 
 ### __callStatic
-当我们调用一个不可访问（protected/private/不存在）的静态方法时，__callStatic魔术方法就会被系统调用。
+当我们调用一个不可访问（protected/private/不存在）的静态方法时，\_\_callStatic魔术方法就会被系统调用。
 ```php
 class A{
   public static function __callStatic($method_name,$parameters){
