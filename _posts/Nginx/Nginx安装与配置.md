@@ -1,8 +1,8 @@
 ---
-title: nginx安装与配置
+title: Nginx安装与配置
 date: 2019-01-20 16:56:24
 tags: 
-    - nginx
+    - Nginx
 ---
 
 ## 添加源

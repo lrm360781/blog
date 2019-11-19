@@ -2,7 +2,7 @@
 title: 常见的Nginx 502 Bad Gateway解决办法
 date: 2019-4-10 21:12:36
 tags:
-    - nginx 
+    - Nginx 
 ---
 ## Nginx 502错误情况1
 网站的访问量大，而php-cgi的进程数偏少

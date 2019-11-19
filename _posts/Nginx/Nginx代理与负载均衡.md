@@ -1,8 +1,8 @@
 ---
-title: nginx代理与负载均衡
+title: Nginx代理与负载均衡
 date: 2019-01-25 16:56:24
 tags: 
-    - nginx
+    - Nginx
     - 代理
 ---
 # nginx概述

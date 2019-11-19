@@ -1,9 +1,9 @@
 ---
-title: nginx部署ssl证书
+title: Nginx部署SSL证书
 date: 2019-03-02 10:09:45
 tags: 
-    - nginx
-    - ssl
+    - Nginx
+    - SSL
 ---
 
 ## 证书获取

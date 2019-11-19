@@ -2,7 +2,7 @@
 title: nginx： [error] invalid PID number "" in "/var/run/nginx.pid"
 date: 2019-5-15 13:07:11
 tags:
-    - nginx 
+    - Nginx 
 ---
  ## 现象
  修改配置文件后执行**nginx -t**检查nginx配置，返回**OK**；
