@@ -1,5 +1,5 @@
 ---
-title: Hexo主题yelee增加网站阅读统计
+title: Hexo主题yelee添加网站阅读统计功能
 date: 2019-04-09 16:56:24
 tags: 工具使用
 ---

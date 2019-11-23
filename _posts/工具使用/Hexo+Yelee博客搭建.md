@@ -67,17 +67,53 @@ chmod +x run.sh   (获得执行权限)
 ```
 此时，hexo处于后台启动，后台启动脚本参照此处,[传送门](https://www.rms360.top/2019/04/07/Linux/Linux%E8%84%9A%E6%9C%AC/)
 
-## 本地搜素
-### 安装插件
+## 插件安装
+### 本地搜索
 使用本地搜索需要安装插件，用于生产索引数据
 ```ejs
 $ npm install hexo-generator-search --save
 ```
 可参照[hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
-### 修改配置文件
+修改配置文件
 打开yelee文件夹下的_config,yml文件，设置如下：
 ```ejs
 search: 
   on: true
   onload: false
 ```
+### live2d卡通人物
+
+网页右下角的小可爱就是添加的live2d卡通人物，而且她还会眨眼睛，头会随着鼠标的移动而转动。
+安装hexo-helper-live2d
+```yaml
+npm install --save hexo-helper-live2d
+```
+安装live2d
+```yaml
+npm install live2d-widget-model-图标名称
+```
+[参考代码：GitHub](https://github.com/xiazeyu/live2d-widget-models)
+[站点图标参考](https://huaji8.top/post/live2d-plugin-2.0/)
+
+配置图标:在Hexo站点配置文件_config.yml，或者主题配置文件_config.yml中添加如下配置
+```yaml
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  log: false
+  model:
+    use: live2d-widget-model-hibiki
+  display:
+    position: right
+    width: 150
+    height: 320
+  mobile:
+    show: true
+  react:
+    opacity: 0.7
+```
+
