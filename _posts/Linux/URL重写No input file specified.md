@@ -2,7 +2,7 @@
 title: URL重写
 date: 2019-06-02 16:09:49
 tags:
-    - nginx
+    - Nginx
     - Apache
     - tp
 ---
