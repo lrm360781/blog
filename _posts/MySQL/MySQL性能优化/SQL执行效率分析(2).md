@@ -30,7 +30,7 @@ select @@profiling;
 0 表示关闭，1表示开启
 
 ### 
-```yaml
+```sql
 set profiling=1;
 set 时没加 global，只对当前 session 有效。
 
@@ -64,7 +64,7 @@ select * from t1 where b=1000;
 
 首先构造如下 SQL (表示取出表 t1 中 a 的值大于 900 并且 b 的值大于 910 的数据，然后按
 照 a 字段排序)：
-```yaml
+```sql
 select * from t1 where a >900 and b > 910 order by a;
 ```
 我们首先用 explain 分析下执行计划：
@@ -73,7 +73,7 @@ select * from t1 where a >900 and b > 910 order by a;
 通过上面执行计划中 key 这个字段可以看出，该语句使用的是 b 字段的索引 idx_b。实际表 t1中，a、b 两个字段都有索引，为什么条件中有这两个索引字段却偏偏选了 b 字段的索引呢？
 
 这时就可以使用 trace 进行分析。大致步骤如下：
-```yaml
+```sql
 mysql> set session optimizer_trace="enabled=on",end_markers_in_json=on;
 /* optimizer_trace="enabled=on" 表示开启 trace；end_markers_in_json=on 表示 JSON 输出开启结束标记 */
 Query OK, 0 rows affected (0.00 sec)

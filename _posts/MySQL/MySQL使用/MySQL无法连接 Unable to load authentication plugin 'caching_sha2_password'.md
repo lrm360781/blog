@@ -12,7 +12,7 @@ tags: MySQL
 2、执行以下命令：
 
 
-```
+```sql
 use mysql;   
 select user,host,plugin,authentication_string from user;
 ```
@@ -22,7 +22,7 @@ select user,host,plugin,authentication_string from user;
 
 3、修改加密规则：
 
-```
+```sql
 alter user 'root' @'localhost' identified with mysql_native_password by 'admin';
 ```
 4、即可看到root的plugin 修改成功了

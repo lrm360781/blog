@@ -6,7 +6,7 @@ tags:
 ---
 ## mysql修改设置初始密码
 安装好后的mysql,使用mysql命令，在数据库内修改用户密码：
- ```yaml
+ ```sql
 mysql>use mysql
 
 mysql>update user set password=password('密码') where user='root';
@@ -16,17 +16,17 @@ mysql>flush privileges;
 mysql>exit
 ```
 使用修改好密码的root用户登录mysql
-```yaml
+```sql
 [root@test /]# mysql -uroot -p
 Enter password: 
 ```
 ## mysql端口设置
 使用命令查看端口号
-```yaml
+```sql
 mysql> show global variables like 'port'; 
 ```
 修改端口，编辑/etc/my.cnf文件
-```yaml
+```sql
 [mysqld]  
 port=3506   修改后端口
 ```

@@ -14,7 +14,7 @@ tags:
 内存临时表采用的是memory存储引擎，磁盘临时表采用的是myisam存储引擎（磁盘临时表也可以使用innodb存储引擎，通过internal_tmp_disk_storage_engine参数来控制使用哪种存储引擎，从mysql5.7.6之后默认为innodb存储引擎，之前版本默认为myisam存储引擎）。分别通过Created_tmp_disk_tables 和 Created_tmp_tables 两个参数来查看产生了多少磁盘临时表和所有产生的临时表（内存和磁盘）。
 
 ## 创建临时表的情况
-```yaml
+```sql
 UNION查询；
 用到TEMPTABLE算法或者是UNION查询中的视图；
 ORDER BY和GROUP BY的子句不一样时；
@@ -29,7 +29,7 @@ EXPLAIN 查看执行计划结果的 Extra 列中，如果包含 Using Temporary 
 当然了，如果临时表中需要存储的数据量超过了上限（ tmp-table-size 或 max-heap-table-size 中取其大者），这时候就需要生成基于磁盘的临时表了。
 
 在以下几种情况下，会创建磁盘临时表：
-```yaml
+```sql
 数据表中包含BLOB/TEXT列；
 在 GROUP BY 或者 DSTINCT 的列中有超过 512字符 的字符类型列（或者超过 512字节的 二进制类型列，在5.6.15之前只管是否超过512字节）；
 在SELECT、UNION、UNION ALL查询中，存在最大长度超过512的列（对于字符串类型是512个字符，对于二进制类型则是512字节）；

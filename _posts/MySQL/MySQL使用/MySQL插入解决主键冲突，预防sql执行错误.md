@@ -10,7 +10,7 @@ tags:
 - 使用 ON DUPLICATE KEY UPDATE 在违反逐渐约束时更新
 - 使用 REPLACE 替换 INSERT
 
-```yaml
+```sql
 INSERT INTO `id_rms`
 SELECT 'rms', 'rms应用', 'default', 'default', 1, NULL, NULL, NULL, NULL, NULL, NULL, '{}',NULL
 FROM DUAL

@@ -17,12 +17,12 @@ MySQL 如此方便和稳定。以至于我们在开发 WEB 程序的时候非常
 
 ### 2.1.1 怎样将现有的 MyISAM 数据库转换为 InnoDB？
 
-```
+```sql
 ALTER TABLE {tableName} ENGINE=InnoDB;
 ```
 ### 2.1.2 为每一个表分别创建 InnoDB FILE：
 
-```
+```sql
 innodb_file_per_table=1
 ```
 这样能够保证 ibdata1 文件不会过大。失去控制。尤其是在运行 mysqlcheck -o –all-databases 的时候。
@@ -59,7 +59,7 @@ innodb_file_per_table=1
 
 在以下示例中
 
-```
+```sql
 innodb_buffer_pool_size设置为3G;
 
 innodb_buffer_pool_instances设置为8;
@@ -71,7 +71,7 @@ innodb_buffer_pool_chunk_size默认值为128M。
 3G是有效的innodb_buffer_pool_size值，因为3G是innodb_buffer_pool_instances = 8 * innodb_buffer_pool_chunk_size = 128M的倍数。
 
 
-```
+```sql
 # mysqld --innodb_buffer_pool_size=3G --innodb_buffer_pool_instances=8 &
 
 mysql> show variables like 'innodb_buffer_pool%';
@@ -94,7 +94,7 @@ rows in set (0.01 sec)
 ```
 在以下示例中
 
-```
+```sql
 innodb_buffer_pool_size设置为3G；
 innodb_buffer_pool_instances设置为16；
 innodb_buffer_pool_chunk_size为128M。
@@ -106,7 +106,7 @@ innodb_buffer_pool_chunk_size为128M。
 可以看出innodb_buffer_pool_size的值自动调整到4GB。
 
 
-```
+```sql
 # mysqld --innodb_buffer_pool_size=3G --innodb_buffer_pool_instances=16 &
 
 mysql> show variables like '%innodb_buffer_pool%';
@@ -127,14 +127,14 @@ mysql> show variables like '%innodb_buffer_pool%';
 rows in set (0.01 sec)
 ```
 #### 在线调整InnoDB缓冲池大小
-```
+```sql
 mysql> SET GLOBAL innodb_buffer_pool_size = 3221225472
 ```
 
 #### 监控在线缓冲池调整进度
 
 
-```
+```sql
 mysql> SHOW STATUS WHERE Variable_name='InnoDB_buffer_pool_resize_status';
 +----------------------------------+----------------------------------------------------+
 | Variable_name                    | Value                                              |

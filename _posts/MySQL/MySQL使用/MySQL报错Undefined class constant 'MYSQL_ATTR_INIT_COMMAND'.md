@@ -8,7 +8,7 @@ tags:
 在项目迁移时遇到问题，提示Undefined class constant 'MYSQL_ATTR_INIT_COMMAND'错误；意思是没有开启PDO拓展。
 ## 解决方案
 集成环境中默认关闭了PDO等服务，需要用到时需手动开启服务，操作如下
-```yaml
+```sql
 #打开php.ini文件，找到下列三行代码，去除注释即可
 extension_dir = "ext"
 extension=mysqli

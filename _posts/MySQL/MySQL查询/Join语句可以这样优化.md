@@ -8,7 +8,7 @@ tags: MySQL
 优化技巧。在说关联查询优化之前，我们先看下跟关联查询有关的几个算法：
 
 为了方便理解，首先创建测试表并写入测试数据，语句如下：
-```yaml
+```sql
 CREATE DATABASE muke; /* 创建测试使用的database，名为muke */
 use muke; /* 使用muke这个database */
 drop table if exists t1; /* 如果表t1存在则删除表t1 */
@@ -62,7 +62,7 @@ MySQL 使用以下两种嵌套循环算法或它们的变体在表之间执行�
 因为 MySQL 在关联字段有索引时，才会使用 NLJ，因此本节后面的内容所用到的 NLJ 都表示 Index Nested-Loop Join。
 
 如下例：
-```yaml
+```sql
 select * from t1 inner join t2 on t1.a = t2.a;       /* 表 t1 和表 t2 中的 a 字段都有索引。 */
 ```
 怎么确定这条 SQL 使用的是 NLJ 算法？
@@ -89,7 +89,7 @@ Block Nested-Loop Join(BNL) 算法的思想是：把驱动表的数据读入到 
 join_buffer 中的数据做对比，如果满足 join 条件，则返回结果给客户端。
 
 我们一起看看下面这条 SQL 语句：
-```yaml
+```sql
 select * from t1 inner join t2 on t1.b = t2.b;       /* 表 t1 和表 t2 中的 b 字段都没有索引 */
 ```
 
@@ -131,7 +131,7 @@ join_buffer 里的数据是无序的，因此对表 t1 中的每一行，都要�
  如果 mrr_cost_based=off，表示一直使用 MRR。
 
 下面尝试开启 BKA ：
-```yaml
+```sql
 set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
 ```
 这里对上面几个参数做下解释：
@@ -139,7 +139,7 @@ set optimizer_switch='mrr=on,mrr_cost_based=off,batched_key_access=on';
 - mrr_cost_based=off 不需要优化器基于成本考虑使用还是不使用 MRR，也就是一直使用 MRR
 - batched_key_access=on 开启 BKA
 然后再看 sql1 的执行计划：
-```yaml
+```sql
 explain select * from t1 inner join t2 on t1.a = t2.a;
 ```
 
@@ -153,12 +153,12 @@ explain select * from t1 inner join t2 on t1.a = t2.a;
 通过上面的内容，我们知道了 BNL、NLJ 和 BKA 的原理，因此让 BNL变成 NLJ 或者 BKA，可以提高 join 的效率。我们来看下面的例子。
 
 Block Nested-Loop Join 的例子：
-```yaml
+```sql
 select * from t1 join t2 on t1.b= t2.b;
 ```
 需要 0.08 秒。
 Index Nested-Loop Join 的例子：
-```yaml
+```sql
 select * from t1 join t2 on t1.a= t2.a;
 ```
 只需要 0.01 秒。
@@ -180,13 +180,13 @@ select * from t1 join t2 on t1.a= t2.a;
 所以在写 SQL 时，如果确定被关联字段有索引的情况下，建议用小表做驱动表。
 
 我们来看下以 t2 为驱动表的 SQL：
-```yaml
+```sql
 select * from t2 straight_join t1 on t2.a = t1.a;
 ```
  这里使用 straight_join 可以固定连接方式，让前面的表为驱动表。
 
 再看下以 t1 为驱动表的 SQL：
-```yaml
+```sql
 select * from t1 straight_join t2 on t1.a = t2.a;
 ```
 我们对比下两条 SQL 的执行计划：
@@ -200,7 +200,7 @@ select * from t1 straight_join t2 on t1.a = t2.a;
 这里提供一种创建临时表的方法。
 我们一起测试下：
 比如下面这条关联查询：
-```yaml
+```sql
 select * from t1 join t2 on t1.b= t2.b;
 ```
 我们看下执行计划：
@@ -209,7 +209,7 @@ select * from t1 join t2 on t1.b= t2.b;
 
 由于表 t1 和表 t2 的字段 b都没索引，因此使用的是效率比较低的 BNL 算法。
 现在用临时表的方法对这条 SQL 进行优化：首先创建临时表 t1_tmp，表结构与表 t1 一致，只是在关联字段 b 上添加了索引。
-```yaml
+```sql
 CREATE TEMPORARY TABLE `t1_tmp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `a` int(11) DEFAULT NULL,
@@ -223,7 +223,7 @@ CREATE TEMPORARY TABLE `t1_tmp` (
 insert into t1_tmp select * from t1;
 ```
 执行 join 语句：
-```yaml
+```sql
 select * from t1_tmp join t2 on t1_tmp.b= t2.b;
 ```
 

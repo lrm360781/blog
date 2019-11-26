@@ -22,7 +22,7 @@ could not find driver
 2.pdo未开启
 ## 配置php.ini文件
 打开配置文件，**Ctrl+f**，搜索pdo,将代码前面的分号去掉。
-```yaml
+```ini
 extension_dir = "ext"
 extension=pdo_firebird
 extension=pdo_mysql
@@ -33,7 +33,7 @@ extension=pdo_sqlite
 extension=pgsql
 ```
 开启之后重启服务，若依然不能连接数据库，则修改路径。
-```yaml
+```ini
 extension_dir ="D:\phpstudy_pro\Extensions\php\php7.3.4nts\ext" ;替换为绝对路径
 ```
 问题解决

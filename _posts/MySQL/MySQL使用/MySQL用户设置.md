@@ -6,16 +6,16 @@ tags:
 ---
 ## MySQL新建用户，修改权限
 查看现有用户
-```yaml
+```sql
 select host,user,authentication_string from mysql.user;
 ```
 新建用户
-```yaml
+```sql
 create user "username"@"host" identified by "password";
 ```
 host="localhost"为本地登录用户，host="ip"为ip地址登录，host="%"，为外网ip登录
 ## 删除用户
-```yaml
+```sql
 drop user 'username'@'host';
 drop user 'username';
 delete from user where user='XXX' and host='localhost';
@@ -24,11 +24,11 @@ delete from user where user='XXX' and host='localhost';
 
 ## 授权
 查看某用户权限
-```yaml
+```sql
 show grants for 'root'@'localhost'; 
 select * from mysql.user where user='root' \G; 
 ```
-```yaml
+```sql
  show grants;
 +---------------------------------------------------------------------+
 | Grants for root@localhost                                           |
@@ -39,7 +39,7 @@ select * from mysql.user where user='root' \G;
 2 rows in set (0.00 sec)
 ```
 授权格式
-```yaml
+```sql
 grant privileges on databasename.tablename to 'username'@'host' IDENTIFIED BY 'PASSWORD';
 ```
 ### GRANT命令说明
@@ -64,7 +64,7 @@ d、为每个用户设置满足密码复杂度的密码。
 
 e、定期清理不需要的用户。回收权限或者删除用户。
    
-```yaml
+```sql
  /*授予用户通过外网IP对于该数据库的全部权限*/
 
 　　grant all privileges on `test`.* to 'test'@'%' ;
@@ -84,13 +84,13 @@ e、定期清理不需要的用户。回收权限或者删除用户。
 　 flush privileges; /*刷新权限*/
 ```
 ### 删除权限
-```yaml
+```sql
 revoke privileges on databasename.tablename from 'username'@'host';
 
 revoke delete on test.* from 'jack'@'localhost';
 ```
 ## 更改用户名
-```yaml
+```sql
 mysql> rename user 'jack'@'%' to 'jim'@'%';
 ```
 

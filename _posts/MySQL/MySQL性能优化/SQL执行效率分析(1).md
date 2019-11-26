@@ -24,7 +24,7 @@ tags: MySQL
 如果要使用慢查询日志，一般分为四步：开启慢查询日志、设置慢查询阈值、确定慢查询日志路径、确定慢查询日志文件名。
 
 首先开启慢查询日志，由参数slow_query_log决定是否开启，在MySQL命令行输入如下命令：
-```ejs
+```sql
 mysql> set global slow_query_log = on;
 
 Query OK, 0 rows affected (0.00 sec)
@@ -32,7 +32,7 @@ Query OK, 0 rows affected (0.00 sec)
 ```
 默认环境下，慢查询日志是关闭的。
 设置慢查询阈值：
-```ejs
+```sql
 mysql> set global long_query_time = 1;
 
 Query OK, 0 rows affected (0.00 sec)

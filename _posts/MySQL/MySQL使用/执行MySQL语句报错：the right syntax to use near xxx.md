@@ -8,7 +8,7 @@ tags: MySQL
 - 包含中文逗号，括号或问号等
 - 对于MySQL 8.0所有的表名和表字段都需要在两边加上``
 
-```
+```sql
 MySQL 5.7
 insert into user(name,gender,phone) values('mark','男','1377777777');
 或
@@ -17,7 +17,7 @@ MySQL 8.0
 强制要求使用：
 insert into `user`(`name`,`gender`,`phone`) values('mark','男','1377777777');
 ```
-```
+```sql
 MySQL 5.7
 select username,password from user where id='1';
 或

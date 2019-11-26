@@ -9,7 +9,7 @@ tags:
 ## 常用语句
 
 MySQL启动时命令
-```yaml
+```sql
 查看数据库状态
 systemctl status mysqld
 开启服务
@@ -18,41 +18,41 @@ service mysqld start
 service mysqld restart
 ```
 进入数据库
-```yaml
+```sql
 mysql -u 用户名 -p 密码
 ```
 查看数据库（*注：数据库操作，语句后面要加分号）
-```yaml
+```sql
 show databases;
 ```
 使用某个数据库
-```yaml
+```sql
 use 数据库名称
 ```
 显示数据库中的数据表
-```yaml
+```sql
 show tables;
 ```
 添加用户
-```yaml
+```sql
 create user 用户名称 identified by 密码;
 ```
 授权某一个数据库的所有权限给指定用户
-```yaml
+```sql
 grant all on 数据库名称 to 用户名称;
 ```
 将sql文件导入数据库
-```yaml
+```sql
 source 文件路径;
 ```
 
 ## 重置数据库密码
 ### 修改MySQL登录设置
-```yaml
+```sql
 vim /etc/my.cnf
 ```
 在mysqld配置文件下新增   
-```yaml
+```sql
 skip-grant-tables
 ```
 ```java
@@ -83,11 +83,11 @@ skip-grant-tables
   # Disabling symbolic-links is recommended to prevent assorted security risks
 ```
  ### 保存退出之后，重启该服务
-```yaml
+```sql
   # systemctl restart mysqld.service
 ```
 ### 使用mysql登录数据库
-```yaml
+```sql
 # mysql
 ```
 使用下面语句修改root,密码
@@ -99,6 +99,6 @@ mysql>quit
 ### 重置配置文件并重启服务
 完成上述操作之后，将/etc/my.cnf文件中的skip-grant-tables删除
 退出重启mysql
-```yaml
+```sql
   # systemctl restart mysqld.service
 ```

@@ -9,25 +9,25 @@ tags: MySQL
 - 11、在使用索引字段作为条件时，如果该索引是复合索引，那么必须使用到该索引中的第一个字段作为条件时才能保证系统使用该索引，否则该索引将不会被使用，并且应尽可能的让字段顺序与索引顺序相一致。
 - 12、不要写一些没有意义的查询，如需要生成一个空表结构：
 
-```
+```sql
 　select col1,col2 into #t from t where 1=0
 ```
 这类代码不会返回任何结果集，但是会消耗系统资源的。
 
 修改策略：
 
-```
+```sql
 create table #t(...)
 ```
 - 13、很多时候用 exists 代替 in 是一个好的选择：
 
 
-```
+```sql
 select num from a where num in(select num from b)
 ```
 修改策略：
 
-```
+```sql
 select num from a where exists(select 1 from b where num=a.num)
 ```
 - 14、并不是所有索引对查询都有效，SQL是根据表中数据来进行查询优化的，当索引列有大量数据重复时，SQL查询可能不会去利用索引。
