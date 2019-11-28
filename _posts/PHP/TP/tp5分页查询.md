@@ -8,7 +8,9 @@ tags:
 ---
 分页设置
 ==
-### controller层代码
+
+controller层代码
+--
 
 ```php
 //查询状态为1的用户数据，并且每页显示10数据
@@ -19,8 +21,9 @@ $this->assign('list',$list);
 return $this->fetch();
 
 ```
-### view层代码
 
+view层代码
+--
 ```html
 <div>
     <ul>
@@ -38,7 +41,8 @@ return $this->fetch();
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 ```
 
-## 多表查询/分页
+多表查询、分页
+===
 以主表article查询，起别名a，，联合表art_category，起别名c，条件是id等同，用join
 
 field查询需要的字段，
@@ -73,7 +77,9 @@ order排序差
             
         return $this->fetch();
 ```
-### 数据输出
+
+数据输出
+--
 ```html
 <div class="item-box-rt flex" style="">
 	<div class="item-content">
@@ -111,7 +117,9 @@ order排序差
     </div>
 </div>
 ```
-### 页面标识
+
+页面标识
+--
 ```html
 <div class="pagination-box">{$page}</div>
 ```
