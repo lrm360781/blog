@@ -140,10 +140,13 @@ tags:
             //反向找最小值
             for($j = $k;$j > $n;$j--)
             {
-                $tmp = $arr[$j+1];
-                $arr[$j] = $arr[$j-1];
-                $arr[$j] = $tmp;
-                $flag = $j-1; //添加标记,并记录最后交换的位置
+                if($arr[$j] < $arr[$j-1])
+                {
+                    $tmp = $arr[$j-1];
+                    $arr[$j] = $arr[$j-1];
+                    $arr[$j] = $tmp;
+                    $flag = $j-1; //添加标记,并记录最后交换的位置
+                }
             }
             $n++;
             if($flag == 0)

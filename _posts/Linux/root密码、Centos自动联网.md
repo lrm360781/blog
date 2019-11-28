@@ -20,3 +20,4 @@ tags:
 3. ls  找到ifcfg-ens（一般为数字）文件,以ifcfg-ens33为例
 4. vi ifcfg-ens33将ONBOOT=no  改为yes
 5. 按esc键退出编辑模式，输入:wq! 回车退出并保存
+6. 重启网卡 **service network restart**
