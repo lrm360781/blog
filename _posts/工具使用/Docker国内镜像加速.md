@@ -5,7 +5,7 @@ tags:
     - docker
 ---
 ## 镜像加速器
-在** /etc/docker/daemon.json ** 文件中写入如下内容（如果文件不存在，请自行创建）
+在**/etc/docker/daemon.json** 文件中写入如下内容（如果文件不存在，请自行创建）
 ```yaml
 {
   "registry-mirrors": [
