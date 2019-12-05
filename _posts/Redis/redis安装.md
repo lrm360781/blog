@@ -7,7 +7,7 @@ tags:
 ## 介绍
 Redis是一个开源（BSD许可），内存数据结构存储，用作数据库，缓存和消息代理。它支持数据结构，如字符串，散列，列表，集合，带有范围查询的排序集，位图，超级日志，具有半径查询和流的地理空间索引。Redis具有内置复制，Lua脚本，LRU驱逐，事务和不同级别的磁盘持久性，并通过Redis Sentinel提供高可用性并使用Redis Cluster自动分区。
 ## 下载上传
-redis是开源免费的，直接进入[redis官网](https://redis.io/)，下载源码就行。
+redis是开源免费的，直接进入[redis官网](https://redis.io/)，下载源码就行；[phpredis](http://pecl.php.net/package/redis)扩展先下载。
 下载之后用MobaXterm之类的传输工具，将压缩包上传到虚拟机。
 ### 解压安装
 本站将文件放至 /root/amp
