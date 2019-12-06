@@ -20,32 +20,32 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 <?php
     header('content-type:text/html;charset=utf-8');
     class Person{
-      public $name;
-      protected $age;
-      private $address;
-      
-      public function __construct($name,$age,$address){
-        $this->name=$name;
-        $this->age=$age;
-        $this->address=$address;
-      }
-      
-      //魔术方法
-      public function __set($pro_name,$pro_val){
-        if(property_exists($this,$pro_name)){
-          $this->$pro_name=$pro_val;
-        }else{
-          echo "属性不存在";
+        public $name;
+        protected $age;
+        private $address;
+        
+        public function __construct($name,$age,$address){
+            $this->name=$name;
+            $this->age=$age;
+            $this->address=$address;
         }
-      }
-      
-      public function __get($pro_name){
-              if(property_exists($this,$pro_name)){
-                return $this->$pro_name;
-              }else{
+        
+        //魔术方法
+        public function __set($pro_name,$pro_val){
+            if(property_exists($this,$pro_name)){
+                $this->$pro_name=$pro_val;
+            }else{
                 echo "属性不存在";
-              }
             }
+        }
+    
+        public function __get($pro_name){
+            if(property_exists($this,$pro_name)){
+                return $this->$pro_name;
+            }else{
+                echo "属性不存在";
+            }
+        }
     }
     $p = new Person('rms','22','tiansan');
     
@@ -67,27 +67,27 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 <?php
     header('content-type:text/html;charset=utf-8');
     class Person{
-      public $name;
-      protected $age;
-      private $address;
-      
-      public function __construct($name,$age,$address){
-        $this->name=$name;
-        $this->age=$age;
-        $this->address=$address;
-      }
-      
-      //提供一对getXxx和setXxx方法
-      public function setAge($age){
-        if(is_numeric($age)&&$age>0){
-          $this->age=$age;
-        }else{
-          echo '格式不正确';
+        public $name;
+        protected $age;
+        private $address;
+        
+        public function __construct($name,$age,$address){
+            $this->name=$name;
+            $this->age=$age;
+            $this->address=$address;
         }
-      }
-      public function getAge(){
-        return $this->age;
-      }
+        
+        //提供一对getXxx和setXxx方法
+        public function setAge($age){
+            if(is_numeric($age)&&$age>0){
+                $this->age=$age;
+            }else{
+                echo '格式不正确';
+            }
+        }
+        public function getAge(){
+            return $this->age;
+        }
     }
     $p = new Person('rms','22','tiansan');
     $p->setAge(18);
@@ -101,127 +101,124 @@ oop编程的三大特征是: 封装性, 继承， 多态. 说明一下，在php�
 写一个成员方法，可以根据业务逻辑，一次性对多个属性进行批量操作
 ```php
 <?php
-	header('content-type:text/html;charset=utf-8');
-
-	//Movie(名称，导演，成本(protected)，票房[ticket_office](private))
-	//updateInfo() showAllInfo()
-
-	class Movie{
-		public $name;
-		public $director;
-		protected $cost;
-		private $ticketOffice;
-
-		public function __construct($name, $director, $cost){
-			$this->name = $name;
-			$this->director = $director;
-			$this->cost = $cost;
-		}
-
-		//显示一下电影信息
-		public function showAllInfo(){
-			echo '<br> 电影的信息如下:';
-			echo '<br> name = ' . $this->name;
-			echo '<br> director = ' . $this->director;
-			echo '<br> cost = ' . $this->cost;
-			echo '<br> tickeoffice = ' . $this->ticketOffice;
-		}
-
-		public function updateInfo($director, $cost, $ticketOffice){
-
-			//结合setXxx 来完成
-			$this->setDirector($director);
-			$this->setCost($cost);
-			$this->setTicketOffice($ticketOffice);
-			
-		}
-
-		//setXxx GetXxx
-		public function SetDirector($director){
-			$this->director = $director;
-		}
-		
-		public function getDirector(){
-			return $this->director;
-		}
-
-		public function setCost($cost){
-			
-			//加入数据的验证和判断
-			if(is_numeric($cost) && $cost > 0.0){
-				$this->cost = $cost;
-			}else{
-				echo '<br> 输入成本格式有问题 ';
-			}
-		}
-
-		public function getCost(){
-			return $this->cost;
-		}
-
-		public function setTicketOffice($ticketOffice){
-			//加入数据的验证和判断
-			if(is_numeric($ticketOffice) && $ticketOffice > 0.0){
-				$this->ticketOffice = $ticketOffice;
-			}else{
-				echo '<br> 输入票房格式有问题 ';
-			}
-		}
-		public function getTicketOffice(){
-			return $this->ticketOffice;
-		}
-	}
-
-	$movie = new Movie('葫芦娃', '老爷子', 60000);
-
-	$movie->showAllInfo();
-	echo '<br>***********<br>';
-	$movie->updateInfo('老韩', 4000, 89000);
-	$movie->showAllInfo();
-
-``` 
+    header('content-type:text/html;charset=utf-8');
+    
+    //Movie(名称，导演，成本(protected)，票房[ticket_office](private))
+    //updateInfo() showAllInfo()
+    
+    class Movie{
+        public $name;
+        public $director;
+        protected $cost;
+        private $ticketOffice;
+        
+        public function __construct($name, $director, $cost){
+            $this->name = $name;
+            $this->director = $director;
+            $this->cost = $cost;
+        }
+    
+        //显示一下电影信息
+        public function showAllInfo(){
+            echo '<br> 电影的信息如下:';
+            echo '<br> name = ' . $this->name;
+            echo '<br> director = ' . $this->director;
+            echo '<br> cost = ' . $this->cost;
+            echo '<br> tickeoffice = ' . $this->ticketOffice;
+        }
+    
+        public function updateInfo($director, $cost, $ticketOffice){
+            //结合setXxx 来完成
+            $this->setDirector($director);
+            $this->setCost($cost);
+            $this->setTicketOffice($ticketOffice);
+        }
+    
+        //setXxx GetXxx
+        public function SetDirector($director){
+            $this->director = $director;
+        }
+        
+        public function getDirector(){
+            return $this->director;
+        }
+    
+        public function setCost($cost){   
+            //加入数据的验证和判断
+            if(is_numeric($cost) && $cost > 0.0){
+                $this->cost = $cost;
+            }else{
+                echo '<br> 输入成本格式有问题 ';
+            }
+        }
+    
+        public function getCost(){
+            return $this->cost;
+        }
+    
+        public function setTicketOffice($ticketOffice){
+            //加入数据的验证和判断
+            if(is_numeric($ticketOffice) && $ticketOffice > 0.0){
+                $this->ticketOffice = $ticketOffice;
+            }else{
+                echo '<br> 输入票房格式有问题 ';
+            }
+        }
+        public function getTicketOffice(){
+            return $this->ticketOffice;
+        }
+    }
+    
+    $movie = new Movie('葫芦娃', '老爷子', 60000);
+    
+    $movie->showAllInfo();
+    echo '<br>***********<br>';
+    $movie->updateInfo('老韩', 4000, 89000);
+    $movie->showAllInfo();
+```
 ## 开发中，如何选择操作方式
-(1)	如果我们希望直接通过 $对象名->属性名的方式来操作属性，则使用__set 和 __get 函数即可
-(2)	如果我们希望对各个属性分别进行验证，则使用setXxx 和 getXxx
-(3)	如果希望同时操作多个属性，选择第三种
-(4)	项目经理要求
+(1)如果我们希望直接通过 $对象名->属性名的方式来操作属性，则使用__set 和 __get 函数即可
+(2)如果我们希望对各个属性分别进行验证，则使用setXxx 和 getXxx
+(3)如果希望同时操作多个属性，选择第三种
+(4)项目经理要求
 ## 对象运算符连用
 ```php
 <?php
-	header('content-type:text/html;charset=utf-8');	
-	//单例模式
-	//操作数据库工具
-	//final使之无法被继承
-	final class DaoMysql{
-		private $mysql_link;
-		//表示一个对象实例
-		private static $instance = null;
-		
-		private function __construct($host,$user,$pwd){
-			$this->mysql_link=new mysqli($host,$user,$pwd);
-		}
-		//静态方法，通过这个静态方法来创建对象实例
-		public static function getSingleton($host,$user,$pwd){
-			//instanceof 是对象运算符，他用于判断某个变量是否是某个对象的实例
-			if(!self::$instance instanceof self){
-				self::$instance = new DaoMysql($host,$user,$pwd);
-				//对象连用
-				if(self::$instance->getMysql()->connect_error){
-					die("连接失败：".self::$instance->getMysql()->connect_error);
-				}
-			}
-			return self::$instance;			
-		}
-		//返连接对象
-		public function getMysql(){
-			return $this->mysql_link;
-		}
-		
-		//防止克隆
-		public function __clone(){}
-	}	
-	$dao = DaoMysql::getSingleton('127.0.0.1','root','mima');	
-	var_dump($dao);	
+    header('content-type:text/html;charset=utf-8');	
+    //单例模式
+    //操作数据库工具
+    //final使之无法被继承
+    final class DaoMysql{
+        private $mysql_link;
+        //表示一个对象实例
+        private static $instance = null;
+        
+        private function __construct($host,$user,$pwd){
+            $this->mysql_link=new mysqli($host,$user,$pwd);
+        }
+        //静态方法，通过这个静态方法来创建对象实例
+        public static function getSingleton($host,$user,$pwd){
+            //instanceof 是对象运算符，他用于判断某个变量是否是某个对象的实例
+            if(!self::$instance instanceof self){
+                self::$instance = new DaoMysql($host,$user,$pwd);
+                //对象连用
+                if(self::$instance->getMysql()->connect_error){
+                    die("连接失败：".self::$instance->getMysql()->connect_error);
+                }
+            }
+            return self::$instance;			
+        }
+        //返连接对象
+        public function getMysql(){
+            return $this->mysql_link;
+        }
+    
+        //防止克隆
+        public function __clone(){}
+    }	
+    $dao = DaoMysql::getSingleton('127.0.0.1','root','mima');	
+    var_dump($dao);	
+       
 ```
 
 
