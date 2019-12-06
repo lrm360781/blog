@@ -41,41 +41,41 @@ __invoke        //在对象被当成函数使用时自动执行；兼容对象�
 当程序员要在类外给不可访问的属性赋值时，系统会调用 __set方法；当程序员要在类外获取不可访问的属性赋值时，系统会调用 __get方法。
 ```php
 <?php
-	header('content-type:text/html;charset=utf-8');
-	
-	class A{
-		public $name;
-		protected $food;
-		
-		public function __construct($name,$food){
-			$this->name = $name;
-			$this->food = $food;
-		}
-		
-		public function __get($pro_name){
-			//property_exists函数判断属性是否存在
-			if(property_exists($this,$pro_name)){
-				return $this->$pro_name;
-			}else{
-				return "该属性不存在";
-			}
-		}
-		
-		//$pro_name 表示属性名，$pro_val表示属性值
-		public function __set($pro_name,$pro_val){
-			//判断属性是否存在
-			if(property_exists($this,$pro_name)){
-				return $this->$pro_name=$pro_val;
-			}else{
-				return "该属性不存在";
-			}
-		}
-	}
-	
-	$a = new A('ms','xlx');
-	echo $a->food;   //获取受保护的值
-	
-	echo $a->food='nc'; //修改受保护的值
+    header('content-type:text/html;charset=utf-8');
+    
+    class A{
+        public $name;
+        protected $food;
+        
+        public function __construct($name,$food){
+            $this->name = $name;
+            $this->food = $food;
+        }
+        
+        public function __get($pro_name){
+            //property_exists函数判断属性是否存在
+            if(property_exists($this,$pro_name)){
+                return $this->$pro_name;
+            }else{
+                return "该属性不存在";
+            }
+        }
+    
+        //$pro_name 表示属性名，$pro_val表示属性值
+        public function __set($pro_name,$pro_val){
+            //判断属性是否存在
+            if(property_exists($this,$pro_name)){
+                return $this->$pro_name=$pro_val;
+            }else{
+                return "该属性不存在";
+            }
+        }
+    }
+    
+    $a = new A('ms','xlx');
+    echo $a->food;   //获取受保护的值
+    
+    echo $a->food='nc'; //修改受保护的值
 ```
 ###  __isset和 __unset
 (1)	当对不可访问的属性进行了 isset($对象名->属性)， empty($对象名->属性)操作，那么 \_\_isset 函数就会被系统调用。
@@ -87,66 +87,66 @@ __invoke        //在对象被当成函数使用时自动执行；兼容对象�
 当我们希望将一个对象当做字符串来输出时，就会触发 \_\_toString魔术方法.
 ```php
 <?php
-	header('content-type:text/html;charset=utf-8');
-	
-	class A{
-		public $name;
-		protected $food;
-		
-		public function __construct($name,$food){
-			$this->name = $name;
-			$this->food = $food;
-		}
-		
-		//输出一个对象时，触发该函数，__toString没有形参，要求返回一个字符串
-		//可以通过该函数输出对象信息
-		public function __toString(){
-		  return $this->name . $this->food;
-		}
-	}
-	
-	$a = new A('ms','xlx');
-	echo $a;
+    header('content-type:text/html;charset=utf-8');
+    
+    class A{
+        public $name;
+        protected $food;
+        
+        public function __construct($name,$food){
+            $this->name = $name;
+            $this->food = $food;
+        }
+        
+        //输出一个对象时，触发该函数，__toString没有形参，要求返回一个字符串
+        //可以通过该函数输出对象信息
+        public function __toString(){
+            return $this->name . $this->food;
+        }
+    }
+    
+    $a = new A('ms','xlx');
+    echo $a;
 ```
 ### __clone
 当我们需要将一个对象完全的赋值一份， 保证两个对象的属性和属性值一样，但是他们的数据库空间独立，则可以使用对象克隆。
 ```php
 <?php
-	header('content-type:text/html;charset=utf-8');
+    header('content-type:text/html;charset=utf-8');
+    
+    class A{
+        public $name;
+        protected $food;
+        
+        public function __construct($name,$food){
+            $this->name = $name;
+            $this->food = $food;
+        }
+        //如果程序员防止该类被克隆，则将该__clone申明为private
+        public function __clone(){
+            echo "__clone被调用";
+        }
+    }
 	
-	class A{
-		public $name;
-		protected $food;
-		
-		public function __construct($name,$food){
-			$this->name = $name;
-			$this->food = $food;
-		}
-		//如果程序员防止该类被克隆，则将该__clone申明为private
-		public function __clone(){
-		  echo "__clone被调用";
-		}
-	}
-	
-	$a = new A('ms','xlx');
+    $a = new A('ms','xlx');
     //拷贝赋值
     $b = $a;
     //比较两个对象 
     //当使用比较运算符（==)比较两个变量时，原则是：如果两个对象的属性和属性值都相等，而且是同一个对象的实例，那么两个变量相等
-	if($a == $b){
-	  echo '<br> $a==$b';
-	}
-	//全等运算符(===),这两个对象变量一定要指向某个类的同一个实例(即同一个对象)
-	if($a === $b){
-      echo '<br> $a===$b';
+    if($a == $b){
+        echo '<br> $a==$b';
+    }
+    //全等运算符(===),这两个对象变量一定要指向某个类的同一个实例(即同一个对象)
+    if($a === $b){
+        echo '<br> $a===$b';
     }
     //对象克隆会触发__clone魔术方法
-	$c = clone $a;
-	if($a == $c){
-      echo '<br> $a==$c';
+    $c = clone $a;
+    if($a == $c){
+        echo '<br> $a==$c';
     }
     if($a === $c){
-      echo '<br> $a===$c';
+        echo '<br> $a===$c';
     }
 ```
 ### __call
@@ -156,54 +156,54 @@ __invoke        //在对象被当成函数使用时自动执行；兼容对象�
 **示例** ，通过\_\_call调用受保护（protected）的方法：
 ```php
 <?php
-	header('content-type:text/html;charset=utf-8');
-	
-	class S{
-		public $name;
-		protected $hobby;
-		
-		public function __construct($name,$hobby){
-			$this->name = $name;
-			$this->hobby = $hobby;
-		}
-		
-		protected function getRms($n,$p){
-			return $n+$p;
-		}
-		//通过call函数调用protected函数
-		public function __call($method_name,$parameters){
-			if(method_exists($this,$method_name)){
-				return $this->$method_name($parameters[0],$parameters[1]);
-			}else{
-				return '无此函数';
-			}
-		}
-	}
-	$rms=new S('ms','xrx');
-	$rms->getSum(10,25);
+    header('content-type:text/html;charset=utf-8');
+    
+    class S{
+        public $name;
+        protected $hobby;
+        
+        public function __construct($name,$hobby){
+            $this->name = $name;
+            $this->hobby = $hobby;
+        }
+        
+        protected function getRms($n,$p){
+            return $n+$p;
+        }
+        //通过call函数调用protected函数
+        public function __call($method_name,$parameters){
+            if(method_exists($this,$method_name)){
+                return $this->$method_name($parameters[0],$parameters[1]);
+            }else{
+                return '无此函数';
+            }
+        }
+    }
+    $rms=new S('ms','xrx');
+    $rms->getSum(10,25);
 ```
 
 ### __callStatic
 当我们调用一个不可访问（protected/private/不存在）的静态方法时，\_\_callStatic魔术方法就会被系统调用。
 ```php
-class A{
-  public static function __callStatic($method_name,$parameters){
-    echo $method_name;
-    echo  '<br><pre>';
-    var_dump($parameters);
-  }
-  protected static function test1(){
-    echo '<br> test()';
-  }
-  
-  private static function test2(){
-    echo '<br> test2()';
-  }
-}
-
-A::test1();
-A::test2();
-A::rms();
+    class A{
+        public static function __callStatic($method_name,$parameters){
+            echo $method_name;
+            echo  '<br><pre>';
+            var_dump($parameters);
+        }
+        protected static function test1(){
+            echo '<br> test()';
+        }
+        
+        private static function test2(){
+            echo '<br> test2()';
+        }
+    }
+    
+    A::test1();
+    A::test2();
+    A::rms();
 ```
 
 
