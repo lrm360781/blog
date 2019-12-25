@@ -11,13 +11,10 @@ isset函数是检测变量是否设置
 
 格式：bool isset( mixed var [, mixed var [, ...]] )
 
-返回值：
-
-    若变量不存在则返回FALSE
-    
-    若变量存在且其值为NULL，也返回FALSE，否则返回TURE
-    
-    同时检查多个变量时，每个单项都符号上一条要求时才返回TRUE,否则结果为FALSE
+>返回值：
+若变量不存在则返回FALSE
+若变量存在且其值为NULL，也返回FALSE，否则返回TURE
+同时检查多个变量时，每个单项都符号上一条要求时才返回TRUE,否则结果为FALSE
 
 如果已经使用unset()释放了一个变量之后，使用isset()测试一个被设置成NULL的变量，将返回FALSE。同时要注意的是一个NULL字节（"\0"）并不等同于PHP的NULL常数。
 
@@ -26,13 +23,13 @@ isset函数是检测变量是否设置
 
 $a = array ('test' => 1, 'hello' => NULL);
 
-var_dump( isset ($a['test') ); // TRUE
-var_dump( isset ($a['foo') ); // FALSE
-var_dump( isset ($a['hello') ); // FALSE
+var_dump( isset ($a['test']);   // TRUE
+var_dump( isset ($a['foo']);    // FALSE
+var_dump( isset ($a['hello']);  // FALSE
 
 // 'hello' 等于 NULL，所以被认为是未赋值的。
 // 如果想检测 NULL 键值，可以试试下边的方法。
-var_dump( array_key_exists('hello', $a) ); // TRUE
+var_dump( array_key_exists('hello', $a)); // TRUE
 ?>
 ```
 
@@ -42,11 +39,10 @@ empty函数
 
 功能：检查一个变量是否为空
 
-返回值：
+>返回值：
+若变量不存在则返回TRUE   
+若变量存在且值为""、0、"0"、NULL、FALSE、array()、var $var;以及没有任何属性的对象，则返回TURE
 
-    若变量不存在则返回TRUE
-    
-    若变量存在且值为""、0、"0"、NULL、FALSE、array()、var $var;以及没有任何属性的对象，则返回TURE
 empty()只能用于变量，传递任何其它参数都将造成Paser error而终止运行
 
 ```php
