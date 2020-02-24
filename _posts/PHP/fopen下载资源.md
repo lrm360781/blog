@@ -10,7 +10,6 @@ resource fopen( string $filename, string $mode[, bool $use_include_path = false[
 fopen打开文件或者URL，将$filename指定的名字资源绑定到一个流上。
 
 ## 参数
-参数 
 
 filename
 如果 filename 是 "scheme://..." 的格式，则被当成一个 URL，PHP 将搜索协议处理器（也被称为封装协议）来处理此模式。如果该协议尚未注册封装协议，PHP 将发出一条消息来帮助检查脚本中潜在的问题并将 filename 当成一个普通的文件名继续执行下去。 
