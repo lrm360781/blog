@@ -20,7 +20,7 @@ doc/*.txt #忽略doc目录下的所有.txt文件，不包括其子文件下的.t
 
 另外 git 提供了一个全局的 .gitignore，你可以在你的用户目录下创建 ~/.gitignoreglobal 文件，以同样的规则来划定哪些文件是不需要版本控制的。
 
-需要执行 git config --global core.excludesfile ~/.gitignoreglobal来使得它生效。
+需要执行 git config \-\-global core.excludesfile ~/.gitignoreglobal来使得它生效。
 
 ### 过滤条件
    ？：代表任意的一个字符
@@ -37,12 +37,12 @@ doc/*.txt #忽略doc目录下的所有.txt文件，不包括其子文件下的.t
                         *
                         !.gitignore
    还有一种情况，就是已经commit了，再加入gitignore是无效的，所以需要删除下缓存
-                        git rm -r --cached ignore_file
+                        git rm -r \-\-cached ignore_file
                         
 注意： .gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。
 
    正确的做法是在每个clone下来的仓库中手动设置不要检查特定文件的更改情况。
-   git update-index --assume-unchanged PATH    在PATH处输入要忽略的文件。
+   git update-index \-\-assume-unchanged PATH    在PATH处输入要忽略的文件。
 
    另外 git 还提供了另一种 exclude 的方式来做同样的事情，不同的是 .gitignore 这个文件本身会提交到版本库中去。用来保存的是公共的需要排除的文件。而 .git/info/exclude 这里设置的则是你自己本地需要排除的文件。 他不会影响到其他人。也不会提交到版本库中去。
 
