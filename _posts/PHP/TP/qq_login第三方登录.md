@@ -133,7 +133,7 @@ class Index
         //echo $request_url;
     
         if(ini_get("allow_url_fopen") == "1"){
-            $response = file_get_contents($url);
+            $response = file_get_contents($request_url);
         }else{
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
