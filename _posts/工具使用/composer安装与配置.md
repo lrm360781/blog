@@ -9,6 +9,10 @@ tags:
 ```yaml
 curl -sS https://getcomposer.org/install | php
 ```
+```yaml
+#官网下载地址
+https://getcomposer.org/download/
+```
 将composer.phar文件移动到bin目录以便全局使用composer命令
 ```yaml
 mv composer.phar /usr/local/bin/composer

@@ -18,7 +18,7 @@ SELECT id,name FROM admin WHERE status=1 ORDER BY name DESC;
 ## 分页查询
 使用SELECT查询时，如果结果集数据量很大，比如几万行数据，放在一个页面显示的话数据量太大，不如分页显示，每次显示100条。
 
-要实现分页功能，实际上就是从结果集中显示第1~100条记录作为第1页，显示第101~200条记录作为第2页，以此类推。
+要实现分页功能，实际上就是从结果集中显示第1\~100条记录作为第1页，显示第101\~200条记录作为第2页，以此类推。
 
 因此，分页实际上就是从结果集中“截取”出第M~N条记录。这个查询可以通过LIMIT <M> OFFSET <N>子句实现。我们先把所有学生按照成绩从高到低进行排序：
 ```sql
@@ -68,3 +68,34 @@ SELECT type,SUM(num) num FROM shop GROUP BY type;
 ```sql
 SELECT type,status,COUNT(*) num FROM shop GROUP BY type,status;
 ```
+### 多表查询
+这种一次查询两个表的数据，查询的结果也是一个二维表，它是shop表和admin表的“乘积”，即shop表的每一行与admin表的每一行都两两拼在一起返回。结果集的列数是shop表和admin表的列数之和，行数是shop表和admin表的行数之积。
+
+这种多表查询又称笛卡尔查询，使用笛卡尔查询时要非常小心，由于结果集是目标表的行数乘积，对两个各自有100行记录的表进行笛卡尔查询将返回1万条记录，对两个各自有1万行记录的表进行笛卡尔查询将返回1亿条记录。
+
+你可能还注意到了，上述查询的结果集有两列id和两列name，两列id是因为其中一列是shop表的id，而另一列是admin表的id，但是在结果集中，不好区分。两列name同理
+```sql
+SELECT
+    s.id sid,
+    s.name,
+    s.sprice,
+    s.type,
+    a.id aid,
+    a.name aname
+FROM shop s, admin a
+WHERE s.type = '2' AND a.id = 1;
+```
+### 连接查询
+```sql
+SELECT 
+    s.id,
+    s.name,
+    s.type,
+    a.name aname
+FROM admin a INNER JOIN admin a ON s.id=a.id;
+```
+INNER JOIN查询的写法是：
+1、先确定主表，仍然使用FROM <表1>的语法；
+2、再确定需要连接的表，使用INNER JOIN <表2>的语法；
+3、然后确定连接条件，使用ON <条件...>，条件是s.id = a.id
+4、可选：加上WHERE子句、ORDER BY等子句。
