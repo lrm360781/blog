@@ -24,27 +24,27 @@ sudo systemctl enable nginx.service
 常用配置：静态代理+端口转发
 ### 端口转发 proxy_pass
 ```yaml
-    server {
-        server_name blog.xielin.top;
-        listen 80;
-    	charset utf-8;
-    	access_log off;
-        location / {
-            proxy_pass   http://127.0.0.1:4000/;
-                        proxy_read_timeout 3000;
-            }
+server {
+    server_name www.rms360.top;
+    listen 80;
+    charset utf-8;
+    access_log off;
+    location / {
+        proxy_pass   http://127.0.0.1:4000/;
+        proxy_read_timeout 3000;
     }
+}
 ```
 
 ### 静态代理
 ```yaml
 server {
-	server_name chatbot.xielin.top;
-	listen 80;
+    server_name www.rms360.top;
+    listen 80;
     charset utf-8;
-  		location / {
-  		root /root/WorkSpace/html/chatbot; 
-  			index index.html;
-  		}	
-    }
+    location / {
+        root /root/WorkSpace/html/chatbot; 
+        index index.html;
+    }	
+}
 ```
